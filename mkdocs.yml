@@ -1,0 +1,12 @@
+site_name: My learning notes
+
+theme: 
+  name: material
+  palette:
+    primary: "blue"
+    accent: "blue"
+nav:
+  - "Home": "index.md"
+  - "Artificial Intelligence":
+      - "Machine Leatning":
+        - "Introduction": "artificial-intelligence/machine-learning/introduction.md"
