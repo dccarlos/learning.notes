@@ -9,4 +9,16 @@ nav:
   - "Home": "index.md"
   - "Artificial Intelligence":
       - "Machine Leatning":
-        - "Introduction": "artificial-intelligence/machine-learning/introduction.md"
+        - "Intro": "artificial-intelligence/machine-learning/introduction/intro.md"
+        - "Supervised Learning": "artificial-intelligence/machine-learning/introduction/supervised-learning.md"
+        - "Unsupervised Learning": "artificial-intelligence/machine-learning/introduction/unsupervised-learning.md"
+      - "Data science":
+        - "Statistical learning":
+          - "Introduction": "artificial-intelligence/data-science/statistical-learning/introduction.md"
+  - "Java":
+    - "Concurrency":
+      - "Introduction": "java/concurrency/introduction/intro.md"
+      - "Thread safety": "java/concurrency/fundamentals/thread-safety.md"
+  - "Git":
+    - "Useful commands":
+      - "Stash": "git/useful-commands/stash.md"  
