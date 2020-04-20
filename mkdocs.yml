@@ -1,5 +1,9 @@
 site_name: My learning notes
 
+markdown_extensions:
+  - footnotes
+  - codehilite
+
 theme: 
   name: material
   palette:
@@ -17,8 +21,9 @@ nav:
           - "Introduction": "artificial-intelligence/data-science/statistical-learning/introduction.md"
   - "Java":
     - "Concurrency":
-      - "Introduction": "java/concurrency/introduction/intro.md"
-      - "Thread safety": "java/concurrency/fundamentals/thread-safety.md"
+      - "Introduction": "java/concurrency/introduction/c01-intro.md"
+      - "Thread safety": "java/concurrency/fundamentals/c02-thread-safety.md"
+      - "Sharing objects": "java/concurrency/fundamentals/c03-sharing-objects.md"
   - "Git":
     - "Useful commands":
       - "Stash": "git/useful-commands/stash.md"  

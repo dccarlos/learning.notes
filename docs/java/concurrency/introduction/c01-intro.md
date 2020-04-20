@@ -1,4 +1,4 @@
-# Java Concurrency
+# 1. Java Concurrency
 
 The language provides low-level mechanisms such as _synchronization_ and _condition waits_, but these mechanisms must be used consistently to implement application-level protocols or policies. Without such policies, it is all too easy to create programs that compile and appear to work but are nevertheless broken.
 
