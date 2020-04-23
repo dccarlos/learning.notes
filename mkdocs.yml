@@ -24,6 +24,7 @@ nav:
       - "Introduction": "java/concurrency/introduction/c01-intro.md"
       - "Thread safety": "java/concurrency/fundamentals/c02-thread-safety.md"
       - "Sharing objects": "java/concurrency/fundamentals/c03-sharing-objects.md"
+      - "Composing objects": "java/concurrency/fundamentals/c04-composing-objects.md"
   - "Git":
     - "Useful commands":
       - "Stash": "git/useful-commands/stash.md"  

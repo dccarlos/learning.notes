@@ -2,3 +2,6 @@ Concepts to learn:
 
 Request stall
 blocking next request (BNR)
+
+non-static thread local?
+https://stackoverflow.com/questions/30134272/can-javas-threadlocal-be-applied-to-a-non-static-field-if-yes-how
