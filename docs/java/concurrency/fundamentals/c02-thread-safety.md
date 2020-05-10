@@ -10,7 +10,7 @@ By _**shared**_, we mean that a variable could be accessed by multiple threads; 
 
 _**Whether an object needs to be thread-safe depends on whether it will be accessed from multiple threads**_. This is a property of how the object is used in a program, not what it does. _**Making an object thread-safe requires using synchronization to coordinate access to its mutable state**_; failing to do so could result in data corruption and other undesirable consequences.
 
-> The primary mechanism for synchronization in Java is the synchronized keyword, which pro- vides exclusive locking, but the term “synchronization” also includes the use of volatile variables, explicit locks, and atomic variables.
+> The primary mechanism for synchronization in Java is the synchronized keyword, which provides exclusive locking, but the term “synchronization” also includes the use of volatile variables, explicit locks, and atomic variables.
 
 If multiple threads access the same mutable state variable without appro- priate synchronization, _**your program is broken**_. There are three ways to fix it:
 

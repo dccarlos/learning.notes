@@ -3,6 +3,10 @@ site_name: My learning notes
 markdown_extensions:
   - footnotes
   - codehilite
+  - pymdownx.arithmatex
+  
+extra_javascript:
+  - https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML
 
 theme: 
   name: material
@@ -25,6 +29,12 @@ nav:
       - "Thread safety": "java/concurrency/fundamentals/c02-thread-safety.md"
       - "Sharing objects": "java/concurrency/fundamentals/c03-sharing-objects.md"
       - "Composing objects": "java/concurrency/fundamentals/c04-composing-objects.md"
+      - "Building blocks": "java/concurrency/fundamentals/c05-building-blocks.md"
+      - "Summary Part I": "java/concurrency/fundamentals/summary.md"
+      - "Task Execution": "java/concurrency/structuring-concurrent-applications/c06-task-execution.md"
   - "Git":
     - "Useful commands":
-      - "Stash": "git/useful-commands/stash.md"  
+      - "Stash": "git/useful-commands/stash.md"
+  - "Interviews":
+    - "programming-interviews-exposed":
+      - "Approaches-to-programming-problems": "interviews/programming-interviews-exposed/04-approaches-to-programming-problems.md"    
