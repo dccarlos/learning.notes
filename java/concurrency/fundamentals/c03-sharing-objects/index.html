@@ -690,6 +690,42 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../c05-building-blocks/" title="Building blocks" class="md-nav__link">
+      Building blocks
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../summary/" title="Summary Part I" class="md-nav__link">
+      Summary Part I
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../structuring-concurrent-applications/c06-task-execution/" title="Task Execution" class="md-nav__link">
+      Task Execution
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -746,6 +782,66 @@
   <li class="md-nav__item">
     <a href="../../../../git/useful-commands/stash/" title="Stash" class="md-nav__link">
       Stash
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+    
+    <label class="md-nav__link" for="nav-5">
+      Interviews
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        Interviews
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5-1" type="checkbox" id="nav-5-1">
+    
+    <label class="md-nav__link" for="nav-5-1">
+      programming-interviews-exposed
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-5-1">
+        programming-interviews-exposed
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../interviews/programming-interviews-exposed/04-approaches-to-programming-problems/" title="Approaches-to-programming-problems" class="md-nav__link">
+      Approaches-to-programming-problems
     </a>
   </li>
 
@@ -1091,7 +1187,7 @@
 <h3 id="volatile-variables">Volatile variables</h3>
 <p>The Java language also provides an alternative, weaker form of synchronization, volatile variables, to ensure that updates to a variable are propagated predictably to other threads. When a field is declared volatile, the compiler and runtime are put on notice that this variable is shared and that operations on it should not be reordered with other memory operations. Volatile variables are not cached in registers or in caches where they are hidden from other processors, so a read of a volatile variable always returns the most recent write by any thread. Yet accessing a volatile variable performs no locking and so cannot cause the executing thread to block, making volatile variables a lighter-weight synchronization mechanism than synchronized<sup id="fnref:3"><a class="footnote-ref" href="#fn:3">3</a></sup>. So from a memory visibility perspective, writing a volatile variable is like exiting a synchronized block and reading a volatile variable is like entering a synchronized block.</p>
 <blockquote>
-<p>Use volatile variables only when they simplify implementing and veri- fying your synchronization policy; Good uses of volatile variables include ensuring the visibility of their own state, that of the object they refer to, or indicating that an important life-cycle event (such as initialization or shutdown) has occurred.</p>
+<p>Use volatile variables only when they simplify implementing and verifying your synchronization policy; Good uses of volatile variables include ensuring the visibility of their own state, that of the object they refer to, or indicating that an important life-cycle event (such as initialization or shutdown) has occurred.</p>
 </blockquote>
 <div class="codehilite"><pre><span></span><span class="kd">volatile</span> <span class="kt">boolean</span> <span class="n">asleep</span><span class="o">;</span> 
   <span class="o">...</span>
@@ -1575,6 +1671,8 @@ synchronization, even when synchronization is not used to publish them.</p>
       <script src="../../../../assets/javascripts/application.a353778b.js"></script>
       
       <script>app.initialize({version:"1.1",url:{base:"../../../.."}})</script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
       
     
   </body>

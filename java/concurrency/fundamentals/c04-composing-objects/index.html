@@ -422,10 +422,203 @@
       
     
     
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Composing objects
+      </label>
+    
     <a href="./" title="Composing objects" class="md-nav__link md-nav__link--active">
       Composing objects
     </a>
     
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#designing-a-thread-safe-class" title="Designing a thread-safe class" class="md-nav__link">
+    Designing a thread-safe class
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#gathering-synchronization-requirements" title="Gathering synchronization requirements" class="md-nav__link">
+    Gathering synchronization requirements
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#state-dependent-operations-ie-wait-until-true" title="State-dependent operations (i.e.: wait until true)" class="md-nav__link">
+    State-dependent operations (i.e.: wait until true)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#state-ownership" title="State ownership" class="md-nav__link">
+    State ownership
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#instance-confinement" title="Instance confinement" class="md-nav__link">
+    Instance confinement
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-java-monitor-pattern" title="The Java monitor pattern" class="md-nav__link">
+    The Java monitor pattern
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#delegating-thread-safety" title="Delegating thread safety" class="md-nav__link">
+    Delegating thread safety
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#independent-state-variables" title="Independent state variables" class="md-nav__link">
+    Independent state variables
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#when-delegation-fails" title="When delegation fails" class="md-nav__link">
+    When delegation fails
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#publishing-underlying-state-variables" title="Publishing underlying state variables" class="md-nav__link">
+    Publishing underlying state variables
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#adding-functionality-to-existing-thread-safe-classes" title="Adding functionality to existing thread-safe classes" class="md-nav__link">
+    Adding functionality to existing thread-safe classes
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#client-side-locking" title="Client-side locking" class="md-nav__link">
+    Client-side locking
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#composition" title="Composition" class="md-nav__link">
+    Composition
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#documenting-synchronization-policies" title="Documenting synchronization policies" class="md-nav__link">
+    Documenting synchronization policies
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#interpreting-vague-documentation" title="Interpreting vague documentation" class="md-nav__link">
+    Interpreting vague documentation
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../c05-building-blocks/" title="Building blocks" class="md-nav__link">
+      Building blocks
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../summary/" title="Summary Part I" class="md-nav__link">
+      Summary Part I
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../structuring-concurrent-applications/c06-task-execution/" title="Task Execution" class="md-nav__link">
+      Task Execution
+    </a>
   </li>
 
         
@@ -499,6 +692,66 @@
   </li>
 
     
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+    
+    <label class="md-nav__link" for="nav-5">
+      Interviews
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        Interviews
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5-1" type="checkbox" id="nav-5-1">
+    
+    <label class="md-nav__link" for="nav-5-1">
+      programming-interviews-exposed
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-5-1">
+        programming-interviews-exposed
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../interviews/programming-interviews-exposed/04-approaches-to-programming-problems/" title="Approaches-to-programming-problems" class="md-nav__link">
+      Approaches-to-programming-problems
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
   </ul>
 </nav>
                   </div>
@@ -516,6 +769,150 @@
     
   
   
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#designing-a-thread-safe-class" title="Designing a thread-safe class" class="md-nav__link">
+    Designing a thread-safe class
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#gathering-synchronization-requirements" title="Gathering synchronization requirements" class="md-nav__link">
+    Gathering synchronization requirements
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#state-dependent-operations-ie-wait-until-true" title="State-dependent operations (i.e.: wait until true)" class="md-nav__link">
+    State-dependent operations (i.e.: wait until true)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#state-ownership" title="State ownership" class="md-nav__link">
+    State ownership
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#instance-confinement" title="Instance confinement" class="md-nav__link">
+    Instance confinement
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-java-monitor-pattern" title="The Java monitor pattern" class="md-nav__link">
+    The Java monitor pattern
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#delegating-thread-safety" title="Delegating thread safety" class="md-nav__link">
+    Delegating thread safety
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#independent-state-variables" title="Independent state variables" class="md-nav__link">
+    Independent state variables
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#when-delegation-fails" title="When delegation fails" class="md-nav__link">
+    When delegation fails
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#publishing-underlying-state-variables" title="Publishing underlying state variables" class="md-nav__link">
+    Publishing underlying state variables
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#adding-functionality-to-existing-thread-safe-classes" title="Adding functionality to existing thread-safe classes" class="md-nav__link">
+    Adding functionality to existing thread-safe classes
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#client-side-locking" title="Client-side locking" class="md-nav__link">
+    Client-side locking
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#composition" title="Composition" class="md-nav__link">
+    Composition
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#documenting-synchronization-policies" title="Documenting synchronization policies" class="md-nav__link">
+    Documenting synchronization policies
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#interpreting-vague-documentation" title="Interpreting vague documentation" class="md-nav__link">
+    Interpreting vague documentation
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -528,6 +925,193 @@
                 
                 
                 <h1 id="4-composing-objects">4. Composing objects</h1>
+<h2 id="designing-a-thread-safe-class">Designing a thread-safe class</h2>
+<blockquote>
+<p>An invariant is a set of assertions that must always hold true during the life of an object for the program to be valid. A postcondition is a condition or predicate that must always be true just after the execution of some section of code or after an operation in a formal specification. Postconditions are sometimes tested using assertions within the code itself.</p>
+</blockquote>
+<p>The design process for a thread-safe class should include these three basic elements:</p>
+<ul>
+<li>Identify the variables that form the object’s state</li>
+<li>Identify the invariants that constrain the state variables</li>
+<li>Establish a policy for managing concurrent access to the object’s
+state.</li>
+</ul>
+<p>An object’s state starts with its fields. If they are all of primitive type, the fields comprise the entire state. The state of an object with n primitive fields is just the n-tuple of its field values; the state of a 2D Point is its (x, y) value. <em><strong>If the object has fields that are references to other objects, its state will encompass fields from the referenced objects as well.</strong></em></p>
+<p>The <em><strong>synchronization policy</strong></em> <em>defines how an object coordinates access to its state without violating its invariants or postconditions.</em> It specifies what combination of immutability, thread confinement, and locking is used to maintain thread safety, and which variables are guarded by which locks. <em><strong>To ensure that the class can be analyzed and maintained, document the synchronization policy.</strong></em></p>
+<h3 id="gathering-synchronization-requirements">Gathering synchronization requirements</h3>
+<p>Making a class thread-safe means ensuring that its invariants hold under concurrent access; this requires reasoning about its state. Objects and variables have a state space: the range of possible states they can take on. The smaller this state space, the easier it is to reason about. Many classes have invariants that identify certain states as valid or invalid (i.e.: in counters negative values are not allowed).
+Similarly, operations may have postconditions that identify certain state transi- tions as invalid. If the current state of a Counter is 17, the only valid next state is 18. <em>When the next state is derived from the current state, the operation is necessarily a compound action.</em>
+<em><strong>Constraints placed on states or state transitions by invariants and postconditions create additional synchronization or encapsulation requirements.</strong></em></p>
+<p>A class can also have invariants that constrain multiple state variables. <em><strong>Multivariable invariants like this one create atomicity requirements: related variables must be fetched or updated in a single atomic operation. You cannot update one, release and reacquire the lock, and then update the others, since this could involve leaving the object in an invalid state when the lock was released.</strong></em></p>
+<blockquote>
+<p>You cannot ensure thread safety without understanding an object’s invariants and postconditions. Constraints on the valid values or state transitions for state variables can create atomicity and encapsulation requirements.</p>
+</blockquote>
+<h3 id="state-dependent-operations-ie-wait-until-true">State-dependent operations (i.e.: wait until true)</h3>
+<p>Class invariants and method postconditions constrain the valid states and state transitions for an object. Some objects also have methods with state-based preconditions. For example, you cannot remove an item from an empty queue; a queue must be in the “nonempty” state before you can remove an element. <em><strong>Operations with state-based preconditions are called state-dependent.</strong></em></p>
+<p>In a single-threaded program, if a precondition does not hold, the operation has no choice but to fail. But in a concurrent program, the precondition may become true later due to the action of another thread. Concurrent programs add the possibility of waiting until the precondition becomes true, and then proceeding with the operation.</p>
+<p>The built-in mechanisms for efficiently waiting for a condition to become true—wait and notify—are tightly bound to intrinsic locking, and can be difficult to use correctly. To create operations that wait for a precondition to become true before proceeding, it is often easier to use existing library classes, such as blocking queues or semaphores, to provide the desired state-dependent behavior.</p>
+<h3 id="state-ownership">State ownership</h3>
+<p>When defining which variables form an object’s state, we want to consider only the data that object owns. Ownership is not embodied explicitly in the language, but is instead an element of class design.</p>
+<p>For better or worse, garbage collection lets us avoid thinking carefully about ownership. When passing an object to a method in C++, you have to think fairly carefully about whether you are transferring ownership, engaging in a short-term loan, or envisioning long-term joint ownership. In Java, all these same ownership models are possible, but the garbage collector reduces the cost of many of the common errors in reference sharing, enabling less-than-precise thinking about ownership.</p>
+<p>In many cases, ownership and encapsulation go together—the object encapsulates the state it owns and owns the state it encapsulates. It is the owner of a given state variable that gets to decide on the locking protocol used to maintain the integrity of that variable’s state. Ownership implies control, but once you publish a reference to a mutable object, you no longer have exclusive control; at best, you might have “shared ownership”. A class usually does not own the objects passed to its methods or constructors, unless the method is designed to explicitly transfer ownership of objects passed in (such as the synchronized collection wrapper factory methods).</p>
+<p>Collection classes often exhibit a form of “split ownership”, in which the collection owns the state of the collection infrastructure, but client code owns the objects stored in the collection.</p>
+<h2 id="instance-confinement">Instance confinement</h2>
+<p>If an object is not thread-safe you can ensure that it is only accessed from a single thread (thread confinement), or that all access to it is properly guarded by a lock.</p>
+<p>Encapsulation simplifies making classes thread-safe by promoting instance confinement. When an object is encapsulated within another object, all code paths that have access to the encapsulated object are known and can be therefore be analyzed more easily than if that object were accessible to the entire program. Combining confinement with an appropriate locking discipline can ensure that otherwise non-thread-safe objects are used in a thread-safe manner.</p>
+<p>Confined objects must not escape their intended scope. An object may be confined to a class instance (such as a private class member), a lexical scope (such as a local variable), or a thread (such as an object that is passed from method to method within a thread, but not supposed to be shared across threads).</p>
+<p><code>PersonSet</code> in code bellow illustrates how confinement and locking can work together to make a class thread-safe even when its component state variables are not. The state of <code>PersonSet</code> is managed by a HashSet, which is not thread-safe. But because mySet is private and not allowed to escape, the HashSet is confined to the PersonSet. The only code paths that can access mySet are addPerson and containsPerson, and each of these acquires the lock on the PersonSet. All its state is guarded by its intrinsic lock, making PersonSet thread-safe.</p>
+<div class="codehilite"><pre><span></span><span class="nd">@ThreadSafe</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">PersonSet</span> <span class="o">{</span>
+  <span class="nd">@GuardedBy</span><span class="o">(</span><span class="s">&quot;this&quot;</span><span class="o">)</span> <span class="kd">private</span> <span class="kd">final</span> <span class="n">Set</span><span class="o">&lt;</span><span class="n">Person</span><span class="o">&gt;</span> <span class="n">mySet</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashSet</span><span class="o">&lt;</span><span class="n">Person</span><span class="o">&gt;();</span>
+  <span class="kd">public</span> <span class="kd">synchronized</span> <span class="kt">void</span> <span class="nf">addPerson</span><span class="o">(</span><span class="n">Person</span> <span class="n">p</span><span class="o">)</span> <span class="o">{</span> 
+    <span class="n">mySet</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">p</span><span class="o">);</span>
+  <span class="o">}</span>
+
+  <span class="kd">public</span> <span class="kd">synchronized</span> <span class="kt">boolean</span> <span class="nf">containsPerson</span><span class="o">(</span><span class="n">Person</span> <span class="n">p</span><span class="o">)</span> <span class="o">{</span> 
+    <span class="k">return</span> <span class="n">mySet</span><span class="o">.</span><span class="na">contains</span><span class="o">(</span><span class="n">p</span><span class="o">);</span>
+  <span class="o">}</span> 
+<span class="o">}</span>
+</pre></div>
+
+
+<p>Above example makes no assumptions about the thread-safety of <code>Person</code>, but if it is mutable, additional synchronization will be needed when accessing a Person retrieved from a <code>PersonSet</code>. The most reliable way to do this would be to make <code>Person</code> thread-safe; less reliable would be to guard the <code>Person</code> objects with a lock and ensure that all clients follow the protocol of acquiring the appropriate lock before accessing the <code>Person</code>.</p>
+<p>Of course, it is still possible to violate confinement by publishing a supposedly confined object; if an object is intended to be confined to a specific scope, then letting it escape from that scope is a bug. Confined objects can also escape by publishing other objects such as iterators or inner class instances that may indirectly publish the confined objects.</p>
+<h3 id="the-java-monitor-pattern">The Java monitor pattern</h3>
+<p>Following the principle of instance confinement to its logical conclusion leads you to the Java monitor pattern. An object following the Java monitor pattern encapsulates all its mutable state and guards it with the object’s own intrinsic lock.</p>
+<p>The Java monitor pattern is merely a convention; any lock object could be used to guard an object’s state so long as it is used consistently.</p>
+<div class="codehilite"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">PrivateLock</span> <span class="o">{</span>
+  <span class="kd">private</span> <span class="kd">final</span> <span class="n">Object</span> <span class="n">myLock</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Object</span><span class="o">();</span> 
+  <span class="nd">@GuardedBy</span><span class="o">(</span><span class="s">&quot;myLock&quot;</span><span class="o">)</span> <span class="n">Widget</span> <span class="n">widget</span><span class="o">;</span>
+
+  <span class="kt">void</span> <span class="nf">someMethod</span><span class="o">()</span> <span class="o">{</span> 
+    <span class="kd">synchronized</span><span class="o">(</span><span class="n">myLock</span><span class="o">)</span> <span class="o">{</span>
+      <span class="c1">// Access or modify the state of widget</span>
+    <span class="o">}</span> 
+  <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<p><em><strong>There are advantages to using a private lock object instead of an object’s intrinsic lock (or any other publicly accessible lock). Making the lock object private encapsulates the lock so that client code cannot acquire it, whereas a publicly accessible lock allows client code to participate in its synchronization policy—correctly or incorrectly. Clients that improperly acquire another object’s lock could cause liveness problems, and verifying that a publicly accessible lock is properly used requires examining the entire program rather than a single class.</strong></em></p>
+<h2 id="delegating-thread-safety">Delegating thread safety</h2>
+<p>The Java monitor pattern is useful when building classes from scratch or composing classes out of objects that are not thread-safe. But what if the components of our class are already thread-safe? Do we need to add an additional layer of thread safety? The answer is: “it depends”.</p>
+<p>In <code>CountingFactorizer</code>, we added an AtomicLong to an otherwise stateless object, and the resulting composite object was still thread-safe. Since the state of <code>CountingFactorizer</code> is the state of the thread-safe AtomicLong, and since CountingFactorizer imposes no additional validity constraints on the state of the counter, it is easy to see that <code>CountingFactorizer</code> is thread-safe. We could say that <code>CountingFactorizer</code> delegates its thread safety responsibilities to the AtomicLong: <code>CountingFactorizer</code> is thread-safe because <code>AtomicLong</code> is.</p>
+<h3 id="independent-state-variables">Independent state variables</h3>
+<p>We can also delegate thread safety to more than one underlying state variable as long as those underlying state variables are independent, meaning that the composite class does not impose any invariants involving the multiple state variables.</p>
+<h3 id="when-delegation-fails">When delegation fails</h3>
+<p><code>NumberRange</code> in bellow code uses two AtomicIntegers to manage its state, but imposes an additional constraint—that the first number be less than or equal to the second.</p>
+<div class="codehilite"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">NumberRange</span> <span class="o">{</span>
+  <span class="c1">// INVARIANT: lower &lt;= upper</span>
+  <span class="kd">private</span> <span class="kd">final</span> <span class="n">AtomicInteger</span> <span class="n">lower</span> <span class="o">=</span> <span class="k">new</span> <span class="n">AtomicInteger</span><span class="o">(</span><span class="mi">0</span><span class="o">);</span> 
+  <span class="kd">private</span> <span class="kd">final</span> <span class="n">AtomicInteger</span> <span class="n">upper</span> <span class="o">=</span> <span class="k">new</span> <span class="n">AtomicInteger</span><span class="o">(</span><span class="mi">0</span><span class="o">);</span>
+
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setLower</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">)</span> <span class="o">{</span>
+    <span class="c1">// Warning -- unsafe check-then-act</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">i</span> <span class="o">&gt;</span> <span class="n">upper</span><span class="o">.</span><span class="na">get</span><span class="o">())</span>
+      <span class="k">throw</span> <span class="k">new</span> <span class="n">IllegalArgumentException</span><span class="o">(</span><span class="s">&quot;can’t set lower to &quot;</span> <span class="o">+</span> <span class="n">i</span> <span class="o">+</span> <span class="s">&quot; &gt; upper&quot;</span><span class="o">);</span> 
+      <span class="n">lower</span><span class="o">.</span><span class="na">set</span><span class="o">(</span><span class="n">i</span><span class="o">);</span>
+    <span class="o">}</span>
+  <span class="o">}</span>
+
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setUpper</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">)</span> <span class="o">{</span>
+    <span class="c1">// Warning -- unsafe check-then-act</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">i</span> <span class="o">&lt;</span> <span class="n">lower</span><span class="o">.</span><span class="na">get</span><span class="o">())</span>
+      <span class="k">throw</span> <span class="k">new</span> <span class="n">IllegalArgumentException</span><span class="o">(</span><span class="s">&quot;can’t set upper to &quot;</span> <span class="o">+</span> <span class="n">i</span> <span class="o">+</span> <span class="s">&quot; &lt; lower&quot;</span><span class="o">);</span> 
+      <span class="n">upper</span><span class="o">.</span><span class="na">set</span><span class="o">(</span><span class="n">i</span><span class="o">);</span>
+  <span class="o">}</span>
+
+  <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">isInRange</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="o">(</span><span class="n">i</span> <span class="o">&gt;=</span> <span class="n">lower</span><span class="o">.</span><span class="na">get</span><span class="o">()</span> <span class="o">&amp;&amp;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">upper</span><span class="o">.</span><span class="na">get</span><span class="o">());</span>
+  <span class="o">}</span>
+<span class="o">}</span> 
+</pre></div>
+
+
+<p><code>NumberRange</code> is not thread-safe; it does not preserve the invariant that constrains lower and upper. The setLower and setUpper methods attempt to respect this invariant, but do so poorly. Both setLower and setUpper are check-then-act sequences, but they do not use sufficient locking to make them atomic. If the number range holds (0, 10), and one thread calls setLower(5) while another thread calls setUpper(4), with some unlucky timing both will pass the checks in the setters and both modifications will be applied. The result is that the range now holds (5, 4)—an invalid state. So while the underlying <code>AtomicIntegers</code> are thread-safe, the composite class is not. Because the underlying state variables lower and upper are not independent, <code>NumberRange</code> cannot simply delegate thread safety to its thread-safe state variables. <code>NumberRange</code> could be made thread-safe by using locking to maintain its in- variants, such as guarding lower and upper with a common lock.</p>
+<p>If a class has compound actions, as <code>NumberRange</code> does, delegation alone is again not a suitable approach for thread safety. In these cases, the class must provide its own locking to ensure that compound actions are atomic, unless the entire compound action can also be delegated to the underlying state variables.</p>
+<h3 id="publishing-underlying-state-variables">Publishing underlying state variables</h3>
+<p>When you delegate thread safety to an object’s underlying state variables, under what conditions can you publish those variables so that other classes can modify them as well? Again, the answer depends on what invariants your class imposes on those variables.</p>
+<blockquote>
+<p>If a state variable is thread-safe, does not participate in any invariants that constrain its value, and has no prohibited state transitions for any of its operations, then it can safely be published.</p>
+</blockquote>
+<h2 id="adding-functionality-to-existing-thread-safe-classes">Adding functionality to existing thread-safe classes</h2>
+<p>Sometimes a thread-safe class that supports all of the operations we want already exists, but often the best we can find is a class that supports almost all the operations we want, and then we need to add a new operation to it without undermining its thread safety.</p>
+<p>The safest way to add a new atomic operation is to modify the original class to support the desired operation, but this is not always possible because you may not have access to the source code or may not be free to modify it. If you can modify the original class, you need to understand the implementation’s synchronization policy so that you can enhance it in a manner consistent with its original design. Adding the new method directly to the class means that all the code that implements the synchronization policy for that class is still contained in one source file, facilitating easier comprehension and maintenance.</p>
+<p>Another approach is to extend the class, assuming it was designed for extension.</p>
+<p>Extension is more fragile than adding code directly to a class, because the implementation of the synchronization policy is now distributed over multiple, separately maintained source files. If the underlying class were to change its synchronization policy by choosing a different lock to guard its state variables, the subclass would subtly and silently break, because it no longer used the right lock to control concurrent access to the base class’s state.</p>
+<h3 id="client-side-locking">Client-side locking</h3>
+<p>A third strategy is to extend the functionality of the class without extending the class itself by placing extension code in a “helper” class.</p>
+<div class="codehilite"><pre><span></span><span class="nd">@NotThreadSafe</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ListHelper</span><span class="o">&lt;</span><span class="n">E</span><span class="o">&gt;</span> <span class="o">{</span>
+  <span class="kd">public</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">E</span><span class="o">&gt;</span> <span class="n">list</span> <span class="o">=</span> <span class="n">Collections</span><span class="o">.</span><span class="na">synchronizedList</span><span class="o">(</span><span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">E</span><span class="o">&gt;());</span>
+  <span class="c1">// ...</span>
+  <span class="kd">public</span> <span class="kd">synchronized</span> <span class="kt">boolean</span> <span class="nf">putIfAbsent</span><span class="o">(</span><span class="n">E</span> <span class="n">x</span><span class="o">)</span> <span class="o">{</span>
+    <span class="kt">boolean</span> <span class="n">absent</span> <span class="o">=</span> <span class="o">!</span><span class="n">list</span><span class="o">.</span><span class="na">contains</span><span class="o">(</span><span class="n">x</span><span class="o">);</span>
+
+    <span class="k">if</span> <span class="o">(</span><span class="n">absent</span><span class="o">)</span>
+      <span class="n">list</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">x</span><span class="o">);</span>
+    <span class="k">return</span> <span class="n">absent</span><span class="o">;</span>
+  <span class="o">}</span>
+<span class="o">}</span>  
+</pre></div>
+
+
+<p>Why wouldn’t this work? After all, <code>putIfAbsent</code> is synchronized, right? The problem is that it synchronizes on the wrong lock. Whatever lock the List uses to guard its state, it sure isn’t the lock on the <code>ListHelper</code>. <code>ListHelper</code> provides only the illusion of synchronization; the various list operations, while all synchronized, use different locks, which means that <code>putIfAbsent</code> is not atomic relative to other operations on the List. So there is no guarantee that another thread won’t modify the list while <code>putIfAbsent</code> is executing.</p>
+<p>To make this approach work, we have to use the same lock that the <code>List</code> uses by using client-side locking or external locking. Client-side locking implies guarding client code that uses some object X with the lock X uses to guard its own state. In order to use client-side locking, you must know what lock X uses.</p>
+<p>The documentation for <code>Vector</code> and the synchronized wrapper classes states, not clearly, that they support client-side locking, by using the intrinsic lock for the Vector or the wrapper collection (not the wrapped collection). Bellow code shows a putIfAbsent operation on a thread-safe List that correctly uses client-side locking.</p>
+<div class="codehilite"><pre><span></span><span class="nd">@ThreadSafe</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ListHelper</span><span class="o">&lt;</span><span class="n">E</span><span class="o">&gt;</span> <span class="o">{</span>
+  <span class="kd">public</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">E</span><span class="o">&gt;</span> <span class="n">list</span> <span class="o">=</span> <span class="n">Collections</span><span class="o">.</span><span class="na">synchronizedList</span><span class="o">(</span><span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">E</span><span class="o">&gt;());</span>
+  <span class="c1">// ...</span>
+  <span class="kd">public</span> <span class="kd">synchronized</span> <span class="kt">boolean</span> <span class="nf">putIfAbsent</span><span class="o">(</span><span class="n">E</span> <span class="n">x</span><span class="o">)</span> <span class="o">{</span>
+    <span class="kd">synchronized</span> <span class="o">(</span><span class="n">list</span><span class="o">)</span> <span class="o">{</span>
+      <span class="kt">boolean</span> <span class="n">absent</span> <span class="o">=</span> <span class="o">!</span><span class="n">list</span><span class="o">.</span><span class="na">contains</span><span class="o">(</span><span class="n">x</span><span class="o">);</span>
+
+      <span class="k">if</span> <span class="o">(</span><span class="n">absent</span><span class="o">)</span>
+        <span class="n">list</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">x</span><span class="o">);</span>
+      <span class="k">return</span> <span class="n">absent</span><span class="o">;</span>
+    <span class="o">}</span>
+  <span class="o">}</span>
+<span class="o">}</span>  
+</pre></div>
+
+
+<p>If extending a class to add another atomic operation is fragile because it distributes the locking code for a class over multiple classes in an object hierarchy, client-side locking is even more fragile because it entails putting locking code for class C into classes that are totally unrelated to C. Exercise care when using client-side locking on classes that do not commit to their locking strategy.</p>
+<p>Client-side locking has a lot in common with class extension—they both couple the behavior of the derived class to the implementation of the base class. Just as extension violates encapsulation of implementation, client-side locking violates encapsulation of synchronization policy.</p>
+<h3 id="composition">Composition</h3>
+<p>There is a less fragile alternative for adding an atomic operation to an existing class: composition.
+<code>ImprovedList</code> in bellow code implements the List operations by delegating them to an underlying List instance, and adds an atomic <code>putIfAbsent</code> method. (Like <code>Collections.synchronizedList</code> and other collections wrappers, <code>ImprovedList</code> assumes that once a list is passed to its constructor, the client will not use the underlying list directly again, accessing it only through the <code>ImprovedList</code>.)</p>
+<div class="codehilite"><pre><span></span><span class="nd">@ThreadSafe</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ImprovedList</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="kd">implements</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="o">{</span>
+  <span class="kd">private</span> <span class="kd">final</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">list</span><span class="o">;</span>
+  <span class="kd">public</span> <span class="nf">ImprovedList</span><span class="o">(</span><span class="n">List</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">list</span><span class="o">)</span> <span class="o">{</span> <span class="k">this</span><span class="o">.</span><span class="na">list</span> <span class="o">=</span> <span class="n">list</span><span class="o">;</span> <span class="o">}</span>
+
+  <span class="kd">public</span> <span class="kd">synchronized</span> <span class="kt">boolean</span> <span class="nf">putIfAbsent</span><span class="o">(</span><span class="n">T</span> <span class="n">x</span><span class="o">)</span> <span class="o">{</span> 
+    <span class="kt">boolean</span> <span class="n">contains</span> <span class="o">=</span> <span class="n">list</span><span class="o">.</span><span class="na">contains</span><span class="o">(</span><span class="n">x</span><span class="o">);</span>
+
+    <span class="k">if</span> <span class="o">(</span><span class="n">contains</span><span class="o">)</span>
+      <span class="n">list</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">x</span><span class="o">);</span>
+    <span class="k">return</span> <span class="o">!</span><span class="n">contains</span><span class="o">;</span>
+  <span class="o">}</span>
+
+  <span class="kd">public</span> <span class="kd">synchronized</span> <span class="kt">void</span> <span class="nf">clear</span><span class="o">()</span> <span class="o">{</span> 
+    <span class="n">list</span><span class="o">.</span><span class="na">clear</span><span class="o">();</span> 
+  <span class="o">}</span>
+  <span class="c1">// ... similarly delegate other List methods</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<p><code>ImprovedList</code> adds an additional level of locking using its own intrinsic lock. It does not care whether the underlying List is thread-safe, because it provides its own consistent locking that provides thread safety even if the List is not thread-safe or changes its locking implementation. While the extra layer of synchronization may add some small performance penalty, the implementation in <code>ImprovedList</code> is less fragile than attempting to mimic the locking strategy of another object. In effect, we’ve used the Java monitor pattern to encapsulate an existing List, and this is guaranteed to provide thread safety so long as our class holds the only outstanding reference to the underlying List.</p>
+<h2 id="documenting-synchronization-policies">Documenting synchronization policies</h2>
+<p>Documentation is one of the most powerful (and, sadly, most underutilized) tools for managing thread safety. Users look to the documentation to find out if a class is thread-safe, and maintainers look to the documentation to understand the implementation strategy so they can maintain it without inadvertently compromising safety. Unfortunately, both of these constituencies usually find less information in the documentation than they’d like.</p>
+<blockquote>
+<p>Document a class’s thread safety guarantees for its clients; document its synchronization policy for its maintainers.</p>
+</blockquote>
+<p>Each use of synchronized, volatile, or any thread-safe class reflects a synchronization policy defining a strategy for ensuring the integrity of data in the face of concurrent access. That policy is an element of your program’s design, and should be documented. Of course, the best time to document design decisions is at design time. Weeks or months later, the details may be a blur—so write it down before you forget.</p>
+<h3 id="interpreting-vague-documentation">Interpreting vague documentation</h3>
+<p>“thread” and “concurrent” do not appear at all in the <code>JDBC</code> specification, and appear frustratingly rarely in the servlet specification. So what do you do?</p>
+<p>You are going to have to guess. One way to improve the quality of your guess is to interpret the specification from the perspective of someone who will implement it (such as a container or database vendor), as opposed to someone who will merely use it. Servlets are always called from a container-managed thread, and it is safe to assume that if there is more than one such thread, the container knows this.</p>
                 
                   
                 
@@ -563,13 +1147,13 @@
           </a>
         
         
-          <a href="../../../../git/useful-commands/stash/" title="Stash" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../c05-building-blocks/" title="Building blocks" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Stash
+                Building blocks
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">
@@ -602,6 +1186,8 @@
       <script src="../../../../assets/javascripts/application.a353778b.js"></script>
       
       <script>app.initialize({version:"1.1",url:{base:"../../../.."}})</script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
       
     
   </body>

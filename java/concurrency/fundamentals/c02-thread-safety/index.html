@@ -566,6 +566,42 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../c05-building-blocks/" title="Building blocks" class="md-nav__link">
+      Building blocks
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../summary/" title="Summary Part I" class="md-nav__link">
+      Summary Part I
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../structuring-concurrent-applications/c06-task-execution/" title="Task Execution" class="md-nav__link">
+      Task Execution
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -622,6 +658,66 @@
   <li class="md-nav__item">
     <a href="../../../../git/useful-commands/stash/" title="Stash" class="md-nav__link">
       Stash
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+    
+    <label class="md-nav__link" for="nav-5">
+      Interviews
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        Interviews
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5-1" type="checkbox" id="nav-5-1">
+    
+    <label class="md-nav__link" for="nav-5-1">
+      programming-interviews-exposed
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-5-1">
+        programming-interviews-exposed
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../interviews/programming-interviews-exposed/04-approaches-to-programming-problems/" title="Approaches-to-programming-problems" class="md-nav__link">
+      Approaches-to-programming-problems
     </a>
   </li>
 
@@ -797,7 +893,7 @@
 <p>By <em><strong>shared</strong></em>, we mean that a variable could be accessed by multiple threads; by <em><strong>mutable</strong></em>, we mean that its value could change during its lifetime. What we are really trying to do is protect data from uncontrolled concurrent access.</p>
 <p><em><strong>Whether an object needs to be thread-safe depends on whether it will be accessed from multiple threads</strong></em>. This is a property of how the object is used in a program, not what it does. <em><strong>Making an object thread-safe requires using synchronization to coordinate access to its mutable state</strong></em>; failing to do so could result in data corruption and other undesirable consequences.</p>
 <blockquote>
-<p>The primary mechanism for synchronization in Java is the synchronized keyword, which pro- vides exclusive locking, but the term “synchronization” also includes the use of volatile variables, explicit locks, and atomic variables.</p>
+<p>The primary mechanism for synchronization in Java is the synchronized keyword, which provides exclusive locking, but the term “synchronization” also includes the use of volatile variables, explicit locks, and atomic variables.</p>
 </blockquote>
 <p>If multiple threads access the same mutable state variable without appro- priate synchronization, <em><strong>your program is broken</strong></em>. There are three ways to fix it:</p>
 <ul>
@@ -1054,6 +1150,8 @@
       <script src="../../../../assets/javascripts/application.a353778b.js"></script>
       
       <script>app.initialize({version:"1.1",url:{base:"../../../.."}})</script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
       
     
   </body>
