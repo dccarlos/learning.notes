@@ -1,0 +1,1398 @@
+
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1, mkdocs-material-3.3.0">
+    
+    
+      
+        <title>Applying Thread Pools - My learning notes</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/application.572ca0f0.css">
+      
+        <link rel="stylesheet" href="../../../../assets/stylesheets/application-palette.22915126.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#2196f3">
+      
+    
+    
+      <script src="../../../../assets/javascripts/modernizr.962652e9.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../../../assets/fonts/material-icons.css">
+    
+    
+    
+      
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="blue" data-md-color-accent="blue">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#8-applying-thread-pools" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../../../.." title="My learning notes" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            
+              <span class="md-header-nav__topic">
+                My learning notes
+              </span>
+              <span class="md-header-nav__topic">
+                Applying Thread Pools
+              </span>
+            
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          
+            <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+            
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+          
+        
+      </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="../../../.." title="My learning notes" class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </a>
+    My learning notes
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../.." title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      Architecture
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        Architecture
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-1" type="checkbox" id="nav-2-1">
+    
+    <label class="md-nav__link" for="nav-2-1">
+      Microservices Patterns
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-1">
+        Microservices Patterns
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../architecture/microservices-patterns/escaping-monolithic-hell/" title="Escaping monolithic hell" class="md-nav__link">
+      Escaping monolithic hell
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      Artificial Intelligence
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        Artificial Intelligence
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-1" type="checkbox" id="nav-3-1">
+    
+    <label class="md-nav__link" for="nav-3-1">
+      Machine Leatning
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-1">
+        Machine Leatning
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../artificial-intelligence/machine-learning/introduction/intro/" title="Intro" class="md-nav__link">
+      Intro
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../artificial-intelligence/machine-learning/introduction/supervised-learning/" title="Supervised Learning" class="md-nav__link">
+      Supervised Learning
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../artificial-intelligence/machine-learning/introduction/unsupervised-learning/" title="Unsupervised Learning" class="md-nav__link">
+      Unsupervised Learning
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-2" type="checkbox" id="nav-3-2">
+    
+    <label class="md-nav__link" for="nav-3-2">
+      Data science
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-2">
+        Data science
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-2-1" type="checkbox" id="nav-3-2-1">
+    
+    <label class="md-nav__link" for="nav-3-2-1">
+      Statistical learning
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-3-2-1">
+        Statistical learning
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../artificial-intelligence/data-science/statistical-learning/introduction/" title="Introduction" class="md-nav__link">
+      Introduction
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4" checked>
+    
+    <label class="md-nav__link" for="nav-4">
+      Java
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        Java
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-1" type="checkbox" id="nav-4-1" checked>
+    
+    <label class="md-nav__link" for="nav-4-1">
+      Concurrency
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-4-1">
+        Concurrency
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../introduction/c01-intro/" title="Introduction" class="md-nav__link">
+      Introduction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../fundamentals/c02-thread-safety/" title="Thread safety" class="md-nav__link">
+      Thread safety
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../fundamentals/c03-sharing-objects/" title="Sharing objects" class="md-nav__link">
+      Sharing objects
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../fundamentals/c04-composing-objects/" title="Composing objects" class="md-nav__link">
+      Composing objects
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../fundamentals/c05-building-blocks/" title="Building blocks" class="md-nav__link">
+      Building blocks
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../fundamentals/summary/" title="Summary Part I" class="md-nav__link">
+      Summary Part I
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../c06-task-execution/" title="Task Execution" class="md-nav__link">
+      Task Execution
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../c07-cancellation-and-shutdown/" title="Cancellation and Shutdown" class="md-nav__link">
+      Cancellation and Shutdown
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Applying Thread Pools
+      </label>
+    
+    <a href="./" title="Applying Thread Pools" class="md-nav__link md-nav__link--active">
+      Applying Thread Pools
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#implicit-couplings-between-tasks-and-execution-policies" title="Implicit couplings between tasks and execution policies" class="md-nav__link">
+    Implicit couplings between tasks and execution policies
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#thread-starvation-deadlock" title="Thread starvation deadlock" class="md-nav__link">
+    Thread starvation deadlock
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#long-running-tasks" title="Long-running tasks" class="md-nav__link">
+    Long-running tasks
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sizing-thread-pools" title="Sizing thread pools" class="md-nav__link">
+    Sizing thread pools
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuring-threadpoolexecutor" title="Configuring ThreadPoolExecutor" class="md-nav__link">
+    Configuring ThreadPoolExecutor
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#thread-creation-and-teardown" title="Thread creation and teardown" class="md-nav__link">
+    Thread creation and teardown
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#managing-queued-tasks" title="Managing queued tasks" class="md-nav__link">
+    Managing queued tasks
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#saturation-policies" title="Saturation policies" class="md-nav__link">
+    Saturation policies
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#thread-factories" title="Thread factories" class="md-nav__link">
+    Thread factories
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#customizing-threadpoolexecutor-after-construction" title="Customizing ThreadPoolExecutor after construction" class="md-nav__link">
+    Customizing ThreadPoolExecutor after construction
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#extending-threadpoolexecutor" title="Extending ThreadPoolExecutor" class="md-nav__link">
+    Extending ThreadPoolExecutor
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-adding-statistics-to-a-thread-pool" title="Example: adding statistics to a thread pool" class="md-nav__link">
+    Example: adding statistics to a thread pool
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary" title="Summary" class="md-nav__link">
+    Summary
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+    
+    <label class="md-nav__link" for="nav-5">
+      Git
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        Git
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5-1" type="checkbox" id="nav-5-1">
+    
+    <label class="md-nav__link" for="nav-5-1">
+      Useful commands
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-5-1">
+        Useful commands
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../git/useful-commands/stash/" title="Stash" class="md-nav__link">
+      Stash
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
+    
+    <label class="md-nav__link" for="nav-6">
+      Interviews
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-6">
+        Interviews
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-1" type="checkbox" id="nav-6-1">
+    
+    <label class="md-nav__link" for="nav-6-1">
+      programming-interviews-exposed
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-6-1">
+        programming-interviews-exposed
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../interviews/programming-interviews-exposed/04-approaches-to-programming-problems/" title="Approaches-to-programming-problems" class="md-nav__link">
+      Approaches-to-programming-problems
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
+    
+    <label class="md-nav__link" for="nav-7">
+      Consulting
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-7">
+        Consulting
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7-1" type="checkbox" id="nav-7-1">
+    
+    <label class="md-nav__link" for="nav-7-1">
+      Pedro Conchas
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-7-1">
+        Pedro Conchas
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../consulting/pconchas/01_caso/" title="Car Shop " class="md-nav__link">
+      Car Shop 
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#implicit-couplings-between-tasks-and-execution-policies" title="Implicit couplings between tasks and execution policies" class="md-nav__link">
+    Implicit couplings between tasks and execution policies
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#thread-starvation-deadlock" title="Thread starvation deadlock" class="md-nav__link">
+    Thread starvation deadlock
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#long-running-tasks" title="Long-running tasks" class="md-nav__link">
+    Long-running tasks
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sizing-thread-pools" title="Sizing thread pools" class="md-nav__link">
+    Sizing thread pools
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuring-threadpoolexecutor" title="Configuring ThreadPoolExecutor" class="md-nav__link">
+    Configuring ThreadPoolExecutor
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#thread-creation-and-teardown" title="Thread creation and teardown" class="md-nav__link">
+    Thread creation and teardown
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#managing-queued-tasks" title="Managing queued tasks" class="md-nav__link">
+    Managing queued tasks
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#saturation-policies" title="Saturation policies" class="md-nav__link">
+    Saturation policies
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#thread-factories" title="Thread factories" class="md-nav__link">
+    Thread factories
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#customizing-threadpoolexecutor-after-construction" title="Customizing ThreadPoolExecutor after construction" class="md-nav__link">
+    Customizing ThreadPoolExecutor after construction
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#extending-threadpoolexecutor" title="Extending ThreadPoolExecutor" class="md-nav__link">
+    Extending ThreadPoolExecutor
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-adding-statistics-to-a-thread-pool" title="Example: adding statistics to a thread pool" class="md-nav__link">
+    Example: adding statistics to a thread pool
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary" title="Summary" class="md-nav__link">
+    Summary
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="8-applying-thread-pools">8. Applying Thread Pools</h1>
+<h2 id="implicit-couplings-between-tasks-and-execution-policies">Implicit couplings between tasks and execution policies</h2>
+<p>While the <code>Executor</code> framework offers substantial flexibility in specifying and modifying execution policies, not all tasks are compatible with all execution policies. Types of tasks that require specific execution policies include:</p>
+<ul>
+<li>
+<p><em><strong>Dependent tasks.</strong></em> The most well behaved tasks are independent: those that do not depend on the timing, results, or side effects of other tasks. When executing independent tasks in a thread pool, you can freely vary the pool size and configuration without affecting anything but performance. On the other hand, when you submit tasks that depend on other tasks to a thread pool, you implicitly create constraints on the execution policy that must be carefully managed to avoid liveness problems.</p>
+</li>
+<li>
+<p><em><strong>Tasks that exploit thread confinement.</strong></em> Single-threaded executors make stronger promises about concurrency than do arbitrary thread pools. They guarantee that tasks are not executed concurrently, which allows you to relax the thread safety of task code. This forms an implicit coupling between the task and the execution policy—the tasks require their executor to be single-threaded. In this case, if you changed the Executor from a single-threaded one to a thread pool, thread safety could be lost.</p>
+</li>
+<li>
+<p><em><strong>Response-time-sensitive tasks.</strong></em> GUI applications are sensitive to response time: users are annoyed at long delays between a button click and the corresponding visual feedback. Submitting a long-running task to a single-threaded executor, or submitting several long-running tasks to a thread pool with a small number of threads, may impair the responsiveness of the service managed by that Executor.</p>
+</li>
+</ul>
+<p><em><strong>Tasks that use <code>ThreadLocal</code>.</strong></em> <code>ThreadLocal</code> allows each thread to have its own private “version” of a variable. However, executors are free to reuse threads as they see fit. The standard Executor implementations may reap idle threads when demand is low and add new ones when demand is high, and also replace a worker thread with a fresh one if an unchecked exception is thrown from a task. ThreadLocal makes sense to use in pool threads only if the thread-local value has a lifetime that is bounded by that of a task; <code>ThreadLocal</code> should not be used in pool threads to communicate values between tasks.</p>
+<p>Thread pools work best when tasks are homogeneous and independent. Mixing long-running and short-running tasks risks “clogging” the pool unless it is very large; submitting tasks that depend on other tasks risks deadlock unless the pool is unbounded. Fortunately, requests in typical network-based server applications—web servers, mail servers, file servers—usually meet these guidelines.</p>
+<blockquote>
+<p>Some tasks have characteristics that require or preclude a specific execution policy. Tasks that depend on other tasks require that the thread pool be large enough that tasks are never queued or rejected; tasks that exploit thread confinement require sequential execution. Document these requirements so that future maintainers do not undermine safety or liveness by substituting an incompatible execution policy.</p>
+</blockquote>
+<h3 id="thread-starvation-deadlock">Thread starvation deadlock</h3>
+<p><em><strong>If tasks that depend on other tasks execute in a thread pool, they can deadlock. In a single-threaded executor, a task that submits another task to the same executor and waits for its result will always deadlock.</strong></em> The second task sits on the work queue until the first task completes, but the first will not complete because it is waiting for the result of the second task. The same thing can happen in larger thread pools if all threads are executing tasks that are blocked waiting for other tasks still on the work queue. This is called <em>thread starvation deadlock</em>, and can occur whenever a pool task initiates an unbounded blocking wait for some resource or condition that can succeed only through the action of another pool task, such as waiting for the return value or side effect of another task, unless you can guarantee that the pool is large enough.</p>
+<p><code>ThreadDeadlock</code> illustrates thread starvation deadlock. <code>RenderPageTask</code> submits two additional tasks to the <code>Executor</code> to fetch the page header and footer, renders the page body, waits for the results of the header and footer tasks, and then combines the header, body, and footer into the finished page. With a single-threaded executor, <code>ThreadDeadlock</code> will always deadlock. Similarly, tasks coordinating amongst themselves with a barrier could also cause thread starvation deadlock if the pool is not big enough.</p>
+<blockquote>
+<p>Whenever you submit to an Executor tasks that are not independent, be aware of the possibility of thread starvation deadlock, and document any pool sizing or configuration constraints in the code or configuration file where the Executor is configured.</p>
+</blockquote>
+<div class="codehilite"><pre><span></span><span class="c1">// Task that deadlocks in a single-threaded Executor. Don’t do this.</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ThreadDeadlock</span> <span class="o">{</span>
+    <span class="n">ExecutorService</span> <span class="n">exec</span> <span class="o">=</span> <span class="n">Executors</span><span class="o">.</span><span class="na">newSingleThreadExecutor</span><span class="o">();</span>
+
+    <span class="kd">public</span> <span class="kd">class</span> <span class="nc">LoadFileTask</span> <span class="kd">implements</span> <span class="n">Callable</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="o">{</span>
+        <span class="kd">private</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">fileName</span><span class="o">;</span>
+
+        <span class="kd">public</span> <span class="nf">LoadFileTask</span><span class="o">(</span><span class="n">String</span> <span class="n">fileName</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">this</span><span class="o">.</span><span class="na">fileName</span> <span class="o">=</span> <span class="n">fileName</span><span class="o">;</span>
+        <span class="o">}</span>
+
+        <span class="kd">public</span> <span class="n">String</span> <span class="nf">call</span><span class="o">()</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="o">{</span>
+            <span class="c1">// Here&#39;s where we would actually read the file</span>
+            <span class="k">return</span> <span class="s">&quot;&quot;</span><span class="o">;</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">class</span> <span class="nc">RenderPageTask</span> <span class="kd">implements</span> <span class="n">Callable</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="o">{</span>
+        <span class="kd">public</span> <span class="n">String</span> <span class="nf">call</span><span class="o">()</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="o">{</span>
+            <span class="n">Future</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">header</span><span class="o">,</span> <span class="n">footer</span><span class="o">;</span>
+            <span class="n">header</span> <span class="o">=</span> <span class="n">exec</span><span class="o">.</span><span class="na">submit</span><span class="o">(</span><span class="k">new</span> <span class="n">LoadFileTask</span><span class="o">(</span><span class="s">&quot;header.html&quot;</span><span class="o">));</span>
+            <span class="n">footer</span> <span class="o">=</span> <span class="n">exec</span><span class="o">.</span><span class="na">submit</span><span class="o">(</span><span class="k">new</span> <span class="n">LoadFileTask</span><span class="o">(</span><span class="s">&quot;footer.html&quot;</span><span class="o">));</span>
+            <span class="n">String</span> <span class="n">page</span> <span class="o">=</span> <span class="n">renderBody</span><span class="o">();</span>
+            <span class="c1">// Will deadlock -- task waiting for result of subtask</span>
+            <span class="k">return</span> <span class="n">header</span><span class="o">.</span><span class="na">get</span><span class="o">()</span> <span class="o">+</span> <span class="n">page</span> <span class="o">+</span> <span class="n">footer</span><span class="o">.</span><span class="na">get</span><span class="o">();</span>
+        <span class="o">}</span>
+
+        <span class="kd">private</span> <span class="n">String</span> <span class="nf">renderBody</span><span class="o">()</span> <span class="o">{</span>
+            <span class="c1">// Here&#39;s where we would actually render the page</span>
+            <span class="k">return</span> <span class="s">&quot;&quot;</span><span class="o">;</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<h3 id="long-running-tasks">Long-running tasks</h3>
+<p>Thread pools can have responsiveness problems if tasks can block for extended periods of time, even if deadlock is not a possibility. A thread pool can become clogged with long-running tasks, increasing the service time even for short tasks. If the pool size is too small relative to the expected steady-state number of long-running tasks, eventually all the pool threads will be running long-running tasks and responsiveness will suffer.</p>
+<p>One technique that can mitigate the ill effects of long-running tasks is for tasks to use timed resource waits instead of unbounded waits. Most blocking methods in the plaform libraries come in both untimed and timed versions, such as <code>Thread.join</code>, <code>BlockingQueue.put</code>, <code>CountDownLatch.await</code>, and <code>Selector.select</code>. If the wait times out, you can mark the task as failed and abort it or requeue it for execution later. This guarantees that each task eventually makes progress towards either successful or failed completion, freeing up threads for tasks that might complete more quickly. If a thread pool is frequently full of blocked tasks, this may also be a sign that the pool is too small.</p>
+<h2 id="sizing-thread-pools">Sizing thread pools</h2>
+<p>The ideal size for a thread pool depends on the types of tasks that will be submitted and the characteristics of the deployment system. Thread pool sizes should rarely be hard-coded; instead pool sizes should be provided by a configuration mechanism or computed dynamically by consulting <code>Runtime.availableProcessors</code>.</p>
+<p>Sizing thread pools is not an exact science, but fortunately you need only avoid the extremes of “too big” and “too small”. If a thread pool is too big, then threads compete for scarce CPU and memory resources, resulting in higher memory usage and possible resource exhaustion. If it is too small, throughput suffers as processors go unused despite available work.</p>
+<p>To size a thread pool properly, you need to understand your computing environment, your resource budget, and the nature of your tasks. How many processors does the deployment system have? How much memory? Do tasks perform mostly computation, I/O, or some combination? Do they require a scarce resource, such as a JDBC connection? If you have different categories of tasks with very different behaviors, consider using multiple thread pools so each can be tuned according to its workload.</p>
+<p><em><strong>For compute-intensive tasks, an</strong></em> <span><span class="MathJax_Preview">N_{cpu}</span><script type="math/tex">N_{cpu}</script></span>—<em><strong>processor system usually achieves optimum utilization with a thread pool of</strong></em> <span><span class="MathJax_Preview">N_{cpu} + 1</span><script type="math/tex">N_{cpu} + 1</script></span> <em><strong>threads (Even compute-intensive threads occasionally take a page fault or pause for some other reason, so an “extra” runnable thread prevents CPU cycles from going unused when this happens.)</strong></em></p>
+<p><em><strong>For tasks that also include I/O or other blocking operations, you want a larger pool, since not all of the threads will be schedulable at all times.</strong></em> In order to size the pool properly, you must estimate the ratio of waiting time to compute time for your tasks; this estimate need not be precise and can be obtained through profiling or instrumentation. Alternatively, the size of the thread pool can be tuned by running the application using several different pool sizes under a benchmark load and observing the level of CPU utilization.</p>
+<p>Given these definitions:</p>
+<div>
+<div class="MathJax_Preview">
+\begin{align}
+N_{cpu} &amp; = \text{number of CPUs} \\
+U_{cpu} &amp; = \text{target CPU utilization, }{0\leq U_{cpu}\leq 1} \\ 
+\frac{W}{C} &amp; = \text{ratio of wait time to compute time} \\
+\end{align}
+</div>
+<script type="math/tex; mode=display">
+\begin{align}
+N_{cpu} & = \text{number of CPUs} \\
+U_{cpu} & = \text{target CPU utilization, }{0\leq U_{cpu}\leq 1} \\ 
+\frac{W}{C} & = \text{ratio of wait time to compute time} \\
+\end{align}
+</script>
+</div>
+<p>The optimal pool size for keeping the processors at the desired utilization is:</p>
+<div>
+<div class="MathJax_Preview">
+N_{threads} = N_{cpu}*U_{cpu}*\left(\frac{W}{C}\right)
+</div>
+<script type="math/tex; mode=display">
+N_{threads} = N_{cpu}*U_{cpu}*\left(\frac{W}{C}\right)
+</script>
+</div>
+<p>Of course, CPU cycles are not the only resource you might want to manage using thread pools. Other resources that can contribute to sizing constraints are memory, file handles, socket handles, and database connections. Calculating pool size constraints for these types of resources is easier: just add up how much of that resource each task requires and divide that into the total quantity available. The result will be an upper bound on the pool size.</p>
+<p>When tasks require a pooled resource such as database connections, thread pool size and resource pool size affect each other. If each task requires a connection, the effective size of the thread pool is limited by the connection pool size. Similarly, when the only consumers of connections are pool tasks, the effective size of the connection pool is limited by the thread pool size.</p>
+<h2 id="configuring-threadpoolexecutor">Configuring <code>ThreadPoolExecutor</code></h2>
+<p><code>ThreadPoolExecutor</code> provides the base implementation for the executors returned by the <code>newCachedThreadPool</code>, <code>newFixedThreadPool</code>, and <code>newScheduledThreadExecutor</code> factories in Executors. <code>ThreadPoolExecutor</code> is a flexible, robust pool implementation that allows a variety of customizations.
+If the default execution policy does not meet your needs, you can instantiate a <code>ThreadPoolExecutor</code> through its constructor and customize it as you see fit; you can consult the source code for Executors to see the execution policies for the default configurations and use them as a starting point. <code>ThreadPoolExecutor</code> has several constructors.</p>
+<h3 id="thread-creation-and-teardown">Thread creation and teardown</h3>
+<p>The core pool size, maximum pool size, and keep-alive time govern thread creation and teardown. The core size is the target size; the implementation attempts to maintain the pool at this size even when there are no tasks to execute<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>, and will not create more threads than this unless the work queue is full<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup>. The maximum pool size is the upper bound on how many pool threads can be active at once. A thread that has been idle for longer than the keep-alive time becomes a candidate for reaping and can be terminated if the current pool size exceeds the core size.</p>
+<p>By tuning the core pool size and keep-alive times, you can encourage the pool to reclaim resources used by otherwise idle threads, making them available for more useful work. (Like everything else, this is a tradeoff: reaping idle threads incurs additional latency due to thread creation if threads must later be created when demand increases.)</p>
+<p>The <code>newFixedThreadPool</code> factory sets both the core pool size and the maximum pool size to the requested pool size, creating the effect of infinite timeout; the <code>newCachedThreadPool</code> factory sets the maximum pool size to <code>Integer.MAX_VALUE</code> and the core pool size to zero with a timeout of one minute, creating the effect of an infinitely expandable thread pool that will contract again when demand decreases. Other combinations are possible using the explicit <code>ThreadPoolExecutor</code> constructor.</p>
+<h3 id="managing-queued-tasks">Managing queued tasks</h3>
+<p>Bounded thread pools limit the number of tasks that can be executed concurrently. (The single-threaded executors are a notable special case: they guarantee that no tasks will execute concurrently, offering the possibility of achieving thread safety through thread confinement.) If the arrival rate for new requests exceeds the rate at which they can be handled, requests will still queue up. With a thread pool, they wait in a queue of <code>Runnables</code> managed by the Executor instead of queueing up as threads contending for the CPU. Representing a waiting task with a <code>Runnable</code> and a list node is certainly a lot cheaper than with a thread, but the risk of resource exhaustion still remains if clients can throw requests at the server faster than it can handle them.</p>
+<p>Queues can help smooth out transient bursts of tasks, but if tasks continue to arrive too quickly you will eventually have to throttle the arrival rate to avoid running out of memory<sup id="fnref:3"><a class="footnote-ref" href="#fn:3">3</a></sup>. Even before you run out of memory, response time will get progressively worse as the task queue grows.</p>
+<p><code>ThreadPoolExecutor</code> allows you to supply a <code>BlockingQueue</code> to hold tasks awaiting execution. There are three basic approaches to task queueing: </p>
+<ul>
+<li><em><strong>Unbounded queue</strong></em> (The default for <code>newFixedThreadPool</code> and <code>newSingleThreadExecutor</code> is to use an unbounded <code>LinkedBlockingQueue</code>.) Tasks will queue up if all worker threads are busy, but the queue could grow without bound if the tasks keep arriving faster than they can be executed.</li>
+<li><em><strong>Bounded queue</strong></em> (<code>ArrayBlockingQueue</code> or a bounded <code>LinkedBlockingQueue</code> or <code>PriorityBlockingQueue</code>) It is a more stable resource management strategy. Bounded queues help prevent resource exhaustion but introduce the question of what to do with new tasks when the queue is full. (There are a number of possible saturation policies for addressing this problem); with a bounded work queue, the queue size and pool size must be tuned together. A large queue coupled with a small pool can help reduce memory usage, CPU usage, and context switching, at the cost of potentially constraining throughput.</li>
+<li><em><strong>Synchronous handoff </strong></em> (<code>SynchronousQueue</code> used by <code>newCachedThreadPool</code>) For very large or unbounded pools, you can also bypass queueing entirely and instead hand off tasks directly from producers to worker threads. A <code>SynchronousQueue</code> is not really a queue at all, but a mechanism for managing handoffs between threads. In order to put an element on a <code>SynchronousQueue</code>, another thread must already be waiting to accept the handoff. If no thread is waiting but the current pool size is less than the maximum, <code>ThreadPoolExecutor</code> creates a new thread; otherwise the task is rejected according to the saturation policy. Using a direct handoff is more efficient because the task can be handed right to the thread that will execute it, rather than first placing it on a queue and then having the worker thread fetch it from the queue. <code>SynchronousQueue</code> is a practical choice only if the pool is unbounded or if rejecting excess tasks is acceptable.</li>
+</ul>
+<blockquote>
+<p>The choice of queue interacts with other configuration parameters such as pool size.</p>
+</blockquote>
+<p>Using a FIFO queue like <code>LinkedBlockingQueue</code> or <code>ArrayBlockingQueue</code> causes tasks to be started in the order in which they arrived. For more control over task execution order, you can use a <code>PriorityBlockingQueue</code>, which orders tasks according to priority. Priority can be defined by natural order (if tasks implement <code>Comparable</code>) or by a <code>Comparator</code>.</p>
+<blockquote>
+<p>The <code>newCachedThreadPool</code> factory is a good default choice for an <code>Executor</code>, providing better queuing performance than a fixed thread pool<sup id="fnref:4"><a class="footnote-ref" href="#fn:4">4</a></sup>. </p>
+<p>A fixed size thread pool is a good choice when you need to limit the number of concurrent tasks for resource-management purposes, as in a server application that accepts requests from network clients and would otherwise be vulnerable to overload.</p>
+</blockquote>
+<p><em><strong>Bounding either the thread pool or the work queue is suitable only when tasks are independent. With tasks that depend on other tasks, bounded thread pools or queues can cause thread starvation deadlock; instead, use an unbounded pool configuration like <code>newCachedThreadPool</code><sup id="fnref:5"><a class="footnote-ref" href="#fn:5">5</a></sup>.</strong></em></p>
+<h3 id="saturation-policies">Saturation policies</h3>
+<p>When a bounded work queue fills up, the saturation policy comes into play. The saturation policy for a <code>ThreadPoolExecutor</code> can be modified by calling <code>setRejectedExecutionHandler</code>. (The saturation policy is also used when a task is submitted to an <code>Executor</code> that has been shut down.) Several implementations of <code>RejectedExecutionHandler</code> are provided, each implementing a different saturation policy: <code>AbortPolicy</code>, <code>CallerRunsPolicy</code>, <code>DiscardPolicy</code>, and <code>DiscardOldestPolicy</code>.</p>
+<ul>
+<li><em><strong>Abort</strong></em>. It is the default, and causes execute to throw the unchecked <code>RejectedExecutionException</code>; the caller can catch this exception and implement its own overflow handling as it sees fit.</li>
+<li><em><strong>Discard</strong></em>. Silently discards the newly submitted task if it cannot be queued for execution.</li>
+<li><em><strong>Discard-Oldest</strong></em>. Discards the task that would otherwise be executed next and tries to resubmit the new task. (If the work queue is a priority queue, this discards the highest-priority element, so the combination of a discard-oldest saturation policy and a priority queue is not a good one.)</li>
+<li><em><strong>Caller-Runs</strong></em>. Implements a form of throttling that neither discards tasks nor throws an exception, but instead tries to slow down the flow of new tasks by pushing some of the work back to the caller. It executes the newly submitted task not in a pool thread, but in the thread that calls <code>execute</code>. If we modified our <code>WebServer</code> example to use a bounded queue and the caller-runs policy, after all the pool threads were occupied and the work queue filled up the next task would be executed in the main thread during the call to execute. Since this would probably take some time, the main thread cannot submit any more tasks for at least a little while, giving the worker threads some time to catch up on the backlog. The main thread would also not be calling accept during this time, so incoming requests will queue up in the TCP layer instead of in the application. If the overload persisted, eventually the TCP layer would decide it has queued enough connection requests and begin discarding connection requests as well. As the server becomes overloaded, the overload is gradually pushed outward—from the pool threads to the work queue to the application to the TCP layer, and eventually to the client—enabling more graceful degradation under load.</li>
+</ul>
+<p>Choosing a saturation policy or making other changes to the execution policy can be done when the Executor is created.</p>
+<p>There is no predefined saturation policy to make execute block when the work queue is full. However, the same effect can be accomplished by using a <code>Semaphore</code> to bound the task injection rate as shown in <code>BoundedExecutor</code>. In such an approach, use an unbounded queue (there’s no reason to bound both the queue size and the injection rate) and set the bound on the semaphore to be equal to the pool size plus the number of queued tasks you want to allow, since the semaphore is bounding the number of tasks both currently executing and awaiting execution.</p>
+<div class="codehilite"><pre><span></span><span class="nd">@ThreadSafe</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">BoundedExecutor</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="kd">final</span> <span class="n">Executor</span> <span class="n">exec</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="kd">final</span> <span class="n">Semaphore</span> <span class="n">semaphore</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="nf">BoundedExecutor</span><span class="o">(</span><span class="n">Executor</span> <span class="n">exec</span><span class="o">,</span> <span class="kt">int</span> <span class="n">bound</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">exec</span> <span class="o">=</span> <span class="n">exec</span><span class="o">;</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">semaphore</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Semaphore</span><span class="o">(</span><span class="n">bound</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">submitTask</span><span class="o">(</span><span class="kd">final</span> <span class="n">Runnable</span> <span class="n">command</span><span class="o">)</span>
+            <span class="kd">throws</span> <span class="n">InterruptedException</span> <span class="o">{</span>
+        <span class="n">semaphore</span><span class="o">.</span><span class="na">acquire</span><span class="o">();</span>
+        <span class="k">try</span> <span class="o">{</span>
+            <span class="n">exec</span><span class="o">.</span><span class="na">execute</span><span class="o">(</span><span class="k">new</span> <span class="n">Runnable</span><span class="o">()</span> <span class="o">{</span>
+                <span class="kd">public</span> <span class="kt">void</span> <span class="nf">run</span><span class="o">()</span> <span class="o">{</span>
+                    <span class="k">try</span> <span class="o">{</span>
+                        <span class="n">command</span><span class="o">.</span><span class="na">run</span><span class="o">();</span>
+                    <span class="o">}</span> <span class="k">finally</span> <span class="o">{</span>
+                        <span class="n">semaphore</span><span class="o">.</span><span class="na">release</span><span class="o">();</span>
+                    <span class="o">}</span>
+                <span class="o">}</span>
+            <span class="o">});</span>
+        <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">RejectedExecutionException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">semaphore</span><span class="o">.</span><span class="na">release</span><span class="o">();</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<h3 id="thread-factories">Thread factories</h3>
+<p>Whenever a thread pool needs to create a thread, it does so through a <em>thread factory</em>. The default thread factory creates a new, nondaemon thread with no special configuration. Specifying a thread factory allows you to customize the configuration of pool threads. <code>ThreadFactory</code> has a single method, <code>newThread</code>, that is called whenever a thread pool needs to create a new thread. There are a number of reasons to use a custom thread factory. You might want to specify an <code>UncaughtExceptionHandler</code> for pool threads, or instantiate an instance of a custom Thread class, such as one that performs debug logging. You might want to modify the priority (generally not a very good idea) or set the daemon status (again, not all that good an idea) of pool threads. Or maybe you just want to give pool threads more meaningful names to simplify interpreting thread dumps and error logs.</p>
+<p><code>MyThreadFactory</code> illustrates a custom thread factory. It instantiates a new <code>MyAppThread</code>, passing a pool-specific name to the constructor so that threads from each pool can be distinguished in thread dumps and error logs. <code>MyAppThread</code> can also be used elsewhere in the application so that all threads can take advantage of its debugging features.</p>
+<div class="codehilite"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyThreadFactory</span> <span class="kd">implements</span> <span class="n">ThreadFactory</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">poolName</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="nf">MyThreadFactory</span><span class="o">(</span><span class="n">String</span> <span class="n">poolName</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">poolName</span> <span class="o">=</span> <span class="n">poolName</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="n">Thread</span> <span class="nf">newThread</span><span class="o">(</span><span class="n">Runnable</span> <span class="n">runnable</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="k">new</span> <span class="n">MyAppThread</span><span class="o">(</span><span class="n">runnable</span><span class="o">,</span> <span class="n">poolName</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<p>The interesting customization takes place in <code>MyAppThread</code>, which lets you provide a thread name, sets a custom <code>UncaughtExceptionHandler</code> that writes a message to a Logger, maintains statistics on how many threads have been created and destroyed, and optionally writes a debug message to the log when a thread is created or terminates.</p>
+<div class="codehilite"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyAppThread</span> <span class="kd">extends</span> <span class="n">Thread</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">DEFAULT_NAME</span> <span class="o">=</span> <span class="s">&quot;MyAppThread&quot;</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="kd">static</span> <span class="kd">volatile</span> <span class="kt">boolean</span> <span class="n">debugLifecycle</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">AtomicInteger</span> <span class="n">created</span> <span class="o">=</span> <span class="k">new</span> <span class="n">AtomicInteger</span><span class="o">();</span>
+    <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">AtomicInteger</span> <span class="n">alive</span> <span class="o">=</span> <span class="k">new</span> <span class="n">AtomicInteger</span><span class="o">();</span>
+    <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">Logger</span> <span class="n">log</span> <span class="o">=</span> <span class="n">Logger</span><span class="o">.</span><span class="na">getAnonymousLogger</span><span class="o">();</span>
+
+    <span class="kd">public</span> <span class="nf">MyAppThread</span><span class="o">(</span><span class="n">Runnable</span> <span class="n">r</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">(</span><span class="n">r</span><span class="o">,</span> <span class="n">DEFAULT_NAME</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="nf">MyAppThread</span><span class="o">(</span><span class="n">Runnable</span> <span class="n">runnable</span><span class="o">,</span> <span class="n">String</span> <span class="n">name</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kd">super</span><span class="o">(</span><span class="n">runnable</span><span class="o">,</span> <span class="n">name</span> <span class="o">+</span> <span class="s">&quot;-&quot;</span> <span class="o">+</span> <span class="n">created</span><span class="o">.</span><span class="na">incrementAndGet</span><span class="o">());</span>
+        <span class="n">setUncaughtExceptionHandler</span><span class="o">(</span><span class="k">new</span> <span class="n">Thread</span><span class="o">.</span><span class="na">UncaughtExceptionHandler</span><span class="o">()</span> <span class="o">{</span>
+            <span class="kd">public</span> <span class="kt">void</span> <span class="nf">uncaughtException</span><span class="o">(</span><span class="n">Thread</span> <span class="n">t</span><span class="o">,</span>
+                                          <span class="n">Throwable</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+                <span class="n">log</span><span class="o">.</span><span class="na">log</span><span class="o">(</span><span class="n">Level</span><span class="o">.</span><span class="na">SEVERE</span><span class="o">,</span>
+                        <span class="s">&quot;UNCAUGHT in thread &quot;</span> <span class="o">+</span> <span class="n">t</span><span class="o">.</span><span class="na">getName</span><span class="o">(),</span> <span class="n">e</span><span class="o">);</span>
+            <span class="o">}</span>
+        <span class="o">});</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">run</span><span class="o">()</span> <span class="o">{</span>
+        <span class="c1">// Copy debug flag to ensure consistent value throughout.</span>
+        <span class="kt">boolean</span> <span class="n">debug</span> <span class="o">=</span> <span class="n">debugLifecycle</span><span class="o">;</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">debug</span><span class="o">)</span> <span class="n">log</span><span class="o">.</span><span class="na">log</span><span class="o">(</span><span class="n">Level</span><span class="o">.</span><span class="na">FINE</span><span class="o">,</span> <span class="s">&quot;Created &quot;</span> <span class="o">+</span> <span class="n">getName</span><span class="o">());</span>
+        <span class="k">try</span> <span class="o">{</span>
+            <span class="n">alive</span><span class="o">.</span><span class="na">incrementAndGet</span><span class="o">();</span>
+            <span class="kd">super</span><span class="o">.</span><span class="na">run</span><span class="o">();</span>
+        <span class="o">}</span> <span class="k">finally</span> <span class="o">{</span>
+            <span class="n">alive</span><span class="o">.</span><span class="na">decrementAndGet</span><span class="o">();</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">debug</span><span class="o">)</span> <span class="n">log</span><span class="o">.</span><span class="na">log</span><span class="o">(</span><span class="n">Level</span><span class="o">.</span><span class="na">FINE</span><span class="o">,</span> <span class="s">&quot;Exiting &quot;</span> <span class="o">+</span> <span class="n">getName</span><span class="o">());</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">getThreadsCreated</span><span class="o">()</span> <span class="o">{</span> <span class="k">return</span> <span class="n">created</span><span class="o">.</span><span class="na">get</span><span class="o">();</span> <span class="o">}</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">getThreadsAlive</span><span class="o">()</span> <span class="o">{</span> <span class="k">return</span> <span class="n">alive</span><span class="o">.</span><span class="na">get</span><span class="o">();</span> <span class="o">}</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">boolean</span> <span class="nf">getDebug</span><span class="o">()</span> <span class="o">{</span> <span class="k">return</span> <span class="n">debugLifecycle</span><span class="o">;</span> <span class="o">}</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">setDebug</span><span class="o">(</span><span class="kt">boolean</span> <span class="n">b</span><span class="o">)</span> <span class="o">{</span> <span class="n">debugLifecycle</span> <span class="o">=</span> <span class="n">b</span><span class="o">;</span> <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<p>If your application takes advantage of security policies to grant permissions to particular codebases, you may want to use the <code>privilegedThreadFactory</code> factory method in Executors to construct your thread factory. It creates pool threads that have the same permissions, <code>AccessControlContext</code>, and <code>contextClassLoader</code> as the thread creating the <code>privilegedThreadFactory</code>. Otherwise, threads created by the thread pool inherit permissions from whatever client happens to be calling execute or submit at the time a new thread is needed, which could cause confusing security-related exceptions.</p>
+<h3 id="customizing-threadpoolexecutor-after-construction">Customizing <code>ThreadPoolExecutor</code> after construction</h3>
+<p>Most of the options passed to the <code>ThreadPoolExecutor</code> constructors can also be modified after construction via setters (such as the core thread pool size, maximum thread pool size, keep-alive time, thread factory, and rejected execution handler). If the <code>Executor</code> is created through one of the factory methods in <code>Executors</code> (except <code>newSingleThreadExecutor</code>), you can cast the result to <code>ThreadPoolExecutor</code> to access the setters.</p>
+<p><code>Executors</code> includes a factory method, <code>unconfigurableExecutorService</code>, which takes an existing <code>ExecutorService</code> and wraps it with one exposing only the methods of <code>ExecutorService</code> so it cannot be further configured. Unlike the pooled implementations, <code>newSingleThreadExecutor</code> returns an <code>ExecutorService</code> wrapped in this manner, rather than a raw <code>ThreadPoolExecutor</code>. While a single-threaded executor is actually implemented as a thread pool with one thread, it also promises not to execute tasks concurrently. If some misguided code were to increase the pool size on a single-threaded executor, it would undermine the intended execution semantics.</p>
+<p>You can use this technique with your own executors to prevent the execution policy from being modified. If you will be exposing an <code>ExecutorService</code> to code you don’t trust not to modify it, you can wrap it with an <code>unconfigurableExecutorService</code>.</p>
+<h2 id="extending-threadpoolexecutor">Extending <code>ThreadPoolExecutor</code></h2>
+<p><code>ThreadPoolExecutor</code> was designed for extension, providing several “hooks” for subclasses to override—<code>beforeExecute</code>, <code>afterExecute</code>, and <code>terminated</code>—that can be used to extend the behavior of <code>ThreadPoolExecutor</code>.
+The <code>beforeExecute</code> and <code>afterExecute</code> hooks are called in the thread that executes the task, and can be used for adding logging, timing, monitoring, or statistics gathering. The <code>afterExecute</code> hook is called whether the task completes by returning normally from run or by throwing an <code>Exception</code>. (If the task completes with an <code>Error</code>, <code>afterExecute</code> is not called.) If <code>beforeExecute</code> throws a <code>RuntimeException</code>, the task is not executed and <code>afterExecute</code> is not called.
+The <code>terminated</code> hook is called when the thread pool completes the shutdown process, after all tasks have finished and all worker threads have shut down. It can be used to release resources allocated by the Executor during its lifecycle, perform notification or logging, or finalize statistics gathering.</p>
+<h3 id="example-adding-statistics-to-a-thread-pool">Example: adding statistics to a thread pool</h3>
+<p><code>TimingThreadPool</code> shows a custom thread pool that uses <code>beforeExecute</code>, <code>afterExecute</code>, and <code>terminated</code> to add logging and statistics gathering. To measure a task’s runtime, <code>beforeExecute</code> must record the start time and store it somewhere <code>afterExecute</code> can find it. Because execution hooks are called in the thread that executes the task, a value placed in a <code>ThreadLocal</code> by <code>beforeExecute</code> can be retrieved by <code>afterExecute</code>. <code>TimingThreadPool</code> uses a pair of <code>AtomicLongs</code> to keep track of the total number of tasks processed and the total processing time, and uses the <code>terminated</code> hook to print a log message showing the average task time.</p>
+<div class="codehilite"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">TimingThreadPool</span> <span class="kd">extends</span> <span class="n">ThreadPoolExecutor</span> <span class="o">{</span>
+
+    <span class="kd">public</span> <span class="nf">TimingThreadPool</span><span class="o">()</span> <span class="o">{</span>
+        <span class="kd">super</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">0</span><span class="n">L</span><span class="o">,</span> <span class="n">TimeUnit</span><span class="o">.</span><span class="na">SECONDS</span><span class="o">,</span> <span class="kc">null</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="kd">private</span> <span class="kd">final</span> <span class="n">ThreadLocal</span><span class="o">&lt;</span><span class="n">Long</span><span class="o">&gt;</span> <span class="n">startTime</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ThreadLocal</span><span class="o">&lt;</span><span class="n">Long</span><span class="o">&gt;();</span>
+    <span class="kd">private</span> <span class="kd">final</span> <span class="n">Logger</span> <span class="n">log</span> <span class="o">=</span> <span class="n">Logger</span><span class="o">.</span><span class="na">getLogger</span><span class="o">(</span><span class="s">&quot;TimingThreadPool&quot;</span><span class="o">);</span>
+    <span class="kd">private</span> <span class="kd">final</span> <span class="n">AtomicLong</span> <span class="n">numTasks</span> <span class="o">=</span> <span class="k">new</span> <span class="n">AtomicLong</span><span class="o">();</span>
+    <span class="kd">private</span> <span class="kd">final</span> <span class="n">AtomicLong</span> <span class="n">totalTime</span> <span class="o">=</span> <span class="k">new</span> <span class="n">AtomicLong</span><span class="o">();</span>
+
+    <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">beforeExecute</span><span class="o">(</span><span class="n">Thread</span> <span class="n">t</span><span class="o">,</span> <span class="n">Runnable</span> <span class="n">r</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kd">super</span><span class="o">.</span><span class="na">beforeExecute</span><span class="o">(</span><span class="n">t</span><span class="o">,</span> <span class="n">r</span><span class="o">);</span>
+        <span class="n">log</span><span class="o">.</span><span class="na">fine</span><span class="o">(</span><span class="n">String</span><span class="o">.</span><span class="na">format</span><span class="o">(</span><span class="s">&quot;Thread %s: start %s&quot;</span><span class="o">,</span> <span class="n">t</span><span class="o">,</span> <span class="n">r</span><span class="o">));</span>
+        <span class="n">startTime</span><span class="o">.</span><span class="na">set</span><span class="o">(</span><span class="n">System</span><span class="o">.</span><span class="na">nanoTime</span><span class="o">());</span>
+    <span class="o">}</span>
+
+    <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">afterExecute</span><span class="o">(</span><span class="n">Runnable</span> <span class="n">r</span><span class="o">,</span> <span class="n">Throwable</span> <span class="n">t</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">try</span> <span class="o">{</span>
+            <span class="kt">long</span> <span class="n">endTime</span> <span class="o">=</span> <span class="n">System</span><span class="o">.</span><span class="na">nanoTime</span><span class="o">();</span>
+            <span class="kt">long</span> <span class="n">taskTime</span> <span class="o">=</span> <span class="n">endTime</span> <span class="o">-</span> <span class="n">startTime</span><span class="o">.</span><span class="na">get</span><span class="o">();</span>
+            <span class="n">numTasks</span><span class="o">.</span><span class="na">incrementAndGet</span><span class="o">();</span>
+            <span class="n">totalTime</span><span class="o">.</span><span class="na">addAndGet</span><span class="o">(</span><span class="n">taskTime</span><span class="o">);</span>
+            <span class="n">log</span><span class="o">.</span><span class="na">fine</span><span class="o">(</span><span class="n">String</span><span class="o">.</span><span class="na">format</span><span class="o">(</span><span class="s">&quot;Thread %s: end %s, time=%dns&quot;</span><span class="o">,</span>
+                    <span class="n">t</span><span class="o">,</span> <span class="n">r</span><span class="o">,</span> <span class="n">taskTime</span><span class="o">));</span>
+        <span class="o">}</span> <span class="k">finally</span> <span class="o">{</span>
+            <span class="kd">super</span><span class="o">.</span><span class="na">afterExecute</span><span class="o">(</span><span class="n">r</span><span class="o">,</span> <span class="n">t</span><span class="o">);</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+
+    <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">terminated</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">try</span> <span class="o">{</span>
+            <span class="n">log</span><span class="o">.</span><span class="na">info</span><span class="o">(</span><span class="n">String</span><span class="o">.</span><span class="na">format</span><span class="o">(</span><span class="s">&quot;Terminated: avg time=%dns&quot;</span><span class="o">,</span>
+                    <span class="n">totalTime</span><span class="o">.</span><span class="na">get</span><span class="o">()</span> <span class="o">/</span> <span class="n">numTasks</span><span class="o">.</span><span class="na">get</span><span class="o">()));</span>
+        <span class="o">}</span> <span class="k">finally</span> <span class="o">{</span>
+            <span class="kd">super</span><span class="o">.</span><span class="na">terminated</span><span class="o">();</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<h2 id="summary">Summary</h2>
+<p>The <code>Executor</code> framework is a powerful and flexible framework for concurrently executing tasks. It offers a number of tuning options, such as policies for creating and tearing down threads, handling queued tasks, and what to do with excess tasks, and provides several hooks for extending its behavior. As in most powerful frameworks, however, there are combinations of settings that do not work well together; some types of tasks require specific execution policies, and some combinations of tuning parameters may produce strange results.</p>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:1">
+<p>When a <code>ThreadPoolExecutor</code> is initially created, the core threads are not started immediately but instead as tasks are submitted, unless you call <code>prestartAllCoreThreads</code>.&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:2">
+<p>Developers are sometimes tempted to set the core size to zero so that the worker threads will eventually be torn down and therefore won’t prevent the JVM from exiting, but this can cause some strange-seeming behavior in thread pools that don’t use a <code>SynchronousQueue</code> for their work queue (as <code>newCachedThreadPool</code> does). If the pool is already at the core size, <code>ThreadPoolExecutor</code> creates a new thread only if the work queue is full. <em><strong>So tasks submitted to a thread pool with a work queue that has any capacity and a core size of zero will not execute until the queue fills up, which is usually not what is desired.</strong></em> In Java 6, <code>allowCoreThreadTimeOut</code> allows you to request that all pool threads be able to time out; enable this feature with a core size of zero if you want a bounded thread pool with a bounded work queue but still have all the threads torn down when there is no work to do.&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+<li id="fn:3">
+<p>This is analogous to flow control in communications networks: you may be willing to buffer a certain amount of data, but eventually you need to find a way to get the other side to stop sending you data, or throw the excess data on the floor and hope the sender retransmits it when you’re not so busy.&#160;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+</li>
+<li id="fn:4">
+<p>This performance difference comes from the use of <code>SynchronousQueue</code> instead of <code>LinkedBlockingQueue</code>. <code>SynchronousQueue</code> was replaced in Java 6 with a new nonblocking algorithm that improved throughput in <code>Executor</code> benchmarks by a factor of three over the Java 5.0 <code>SynchronousQueue</code> implementation.&#160;<a class="footnote-backref" href="#fnref:4" title="Jump back to footnote 4 in the text">&#8617;</a></p>
+</li>
+<li id="fn:5">
+<p>An alternative configuration for tasks that submit other tasks and wait for their results is to use a bounded thread pool, a <code>SynchronousQueue</code> as the work queue, and the caller-runs saturation policy.&#160;<a class="footnote-backref" href="#fnref:5" title="Jump back to footnote 5 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../c07-cancellation-and-shutdown/" title="Cancellation and Shutdown" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Cancellation and Shutdown
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../../../../git/useful-commands/stash/" title="Stash" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Stash
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+        
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../../../assets/javascripts/application.a353778b.js"></script>
+      
+      <script>app.initialize({version:"1.1",url:{base:"../../../.."}})</script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,1838 @@
+
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1, mkdocs-material-3.3.0">
+    
+    
+      
+        <title>Cancellation and Shutdown - My learning notes</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/application.572ca0f0.css">
+      
+        <link rel="stylesheet" href="../../../../assets/stylesheets/application-palette.22915126.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#2196f3">
+      
+    
+    
+      <script src="../../../../assets/javascripts/modernizr.962652e9.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../../../assets/fonts/material-icons.css">
+    
+    
+    
+      
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="blue" data-md-color-accent="blue">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#7-cancellation-and-shutdown" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../../../.." title="My learning notes" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            
+              <span class="md-header-nav__topic">
+                My learning notes
+              </span>
+              <span class="md-header-nav__topic">
+                Cancellation and Shutdown
+              </span>
+            
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          
+            <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+            
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+          
+        
+      </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="../../../.." title="My learning notes" class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </a>
+    My learning notes
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../.." title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      Architecture
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        Architecture
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-1" type="checkbox" id="nav-2-1">
+    
+    <label class="md-nav__link" for="nav-2-1">
+      Microservices Patterns
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-1">
+        Microservices Patterns
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../architecture/microservices-patterns/escaping-monolithic-hell/" title="Escaping monolithic hell" class="md-nav__link">
+      Escaping monolithic hell
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      Artificial Intelligence
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        Artificial Intelligence
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-1" type="checkbox" id="nav-3-1">
+    
+    <label class="md-nav__link" for="nav-3-1">
+      Machine Leatning
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-1">
+        Machine Leatning
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../artificial-intelligence/machine-learning/introduction/intro/" title="Intro" class="md-nav__link">
+      Intro
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../artificial-intelligence/machine-learning/introduction/supervised-learning/" title="Supervised Learning" class="md-nav__link">
+      Supervised Learning
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../artificial-intelligence/machine-learning/introduction/unsupervised-learning/" title="Unsupervised Learning" class="md-nav__link">
+      Unsupervised Learning
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-2" type="checkbox" id="nav-3-2">
+    
+    <label class="md-nav__link" for="nav-3-2">
+      Data science
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-2">
+        Data science
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-2-1" type="checkbox" id="nav-3-2-1">
+    
+    <label class="md-nav__link" for="nav-3-2-1">
+      Statistical learning
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-3-2-1">
+        Statistical learning
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../artificial-intelligence/data-science/statistical-learning/introduction/" title="Introduction" class="md-nav__link">
+      Introduction
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4" checked>
+    
+    <label class="md-nav__link" for="nav-4">
+      Java
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        Java
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-1" type="checkbox" id="nav-4-1" checked>
+    
+    <label class="md-nav__link" for="nav-4-1">
+      Concurrency
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-4-1">
+        Concurrency
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../introduction/c01-intro/" title="Introduction" class="md-nav__link">
+      Introduction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../fundamentals/c02-thread-safety/" title="Thread safety" class="md-nav__link">
+      Thread safety
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../fundamentals/c03-sharing-objects/" title="Sharing objects" class="md-nav__link">
+      Sharing objects
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../fundamentals/c04-composing-objects/" title="Composing objects" class="md-nav__link">
+      Composing objects
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../fundamentals/c05-building-blocks/" title="Building blocks" class="md-nav__link">
+      Building blocks
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../fundamentals/summary/" title="Summary Part I" class="md-nav__link">
+      Summary Part I
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../c06-task-execution/" title="Task Execution" class="md-nav__link">
+      Task Execution
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Cancellation and Shutdown
+      </label>
+    
+    <a href="./" title="Cancellation and Shutdown" class="md-nav__link md-nav__link--active">
+      Cancellation and Shutdown
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#task-cancellation" title="Task cancellation" class="md-nav__link">
+    Task cancellation
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cancellation-policy" title="Cancellation policy" class="md-nav__link">
+    Cancellation policy
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#interruption" title="Interruption" class="md-nav__link">
+    Interruption
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#interruption-policies" title="Interruption policies" class="md-nav__link">
+    Interruption policies
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#responding-to-interruption" title="Responding to interruption" class="md-nav__link">
+    Responding to interruption
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-timed-run" title="Example: timed run" class="md-nav__link">
+    Example: timed run
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cancellation-via-future" title="Cancellation via Future" class="md-nav__link">
+    Cancellation via Future
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dealing-with-non-interruptible-blocking" title="Dealing with non-interruptible blocking" class="md-nav__link">
+    Dealing with non-interruptible blocking
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#encapsulating-nonstandard-cancellation-with-newtaskfor" title="Encapsulating nonstandard cancellation with newTaskFor" class="md-nav__link">
+    Encapsulating nonstandard cancellation with newTaskFor
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#stopping-a-thread-based-service" title="Stopping a thread-based service" class="md-nav__link">
+    Stopping a thread-based service
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-a-logging-service" title="Example: a logging service" class="md-nav__link">
+    Example: a logging service
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#executorservice-shutdown" title="ExecutorService shutdown" class="md-nav__link">
+    ExecutorService shutdown
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#poison-pills-tombstone" title="Poison pills (tombstone)" class="md-nav__link">
+    Poison pills (tombstone)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-a-one-shot-execution-service" title="Example: a one-shot execution service" class="md-nav__link">
+    Example: a one-shot execution service
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#limitations-of-shutdownnow" title="Limitations of shutdownNow" class="md-nav__link">
+    Limitations of shutdownNow
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#handling-abnormal-thread-termination" title="Handling abnormal thread termination" class="md-nav__link">
+    Handling abnormal thread termination
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#uncaught-exception-handlers" title="Uncaught exception handlers" class="md-nav__link">
+    Uncaught exception handlers
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#jvm-shutdown" title="JVM shutdown" class="md-nav__link">
+    JVM shutdown
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#daemon-threads" title="Daemon threads" class="md-nav__link">
+    Daemon threads
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#finalizers" title="Finalizers" class="md-nav__link">
+    Finalizers
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sumary" title="Sumary" class="md-nav__link">
+    Sumary
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../c08-applying-thread-pools/" title="Applying Thread Pools" class="md-nav__link">
+      Applying Thread Pools
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+    
+    <label class="md-nav__link" for="nav-5">
+      Git
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        Git
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5-1" type="checkbox" id="nav-5-1">
+    
+    <label class="md-nav__link" for="nav-5-1">
+      Useful commands
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-5-1">
+        Useful commands
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../git/useful-commands/stash/" title="Stash" class="md-nav__link">
+      Stash
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
+    
+    <label class="md-nav__link" for="nav-6">
+      Interviews
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-6">
+        Interviews
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-1" type="checkbox" id="nav-6-1">
+    
+    <label class="md-nav__link" for="nav-6-1">
+      programming-interviews-exposed
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-6-1">
+        programming-interviews-exposed
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../interviews/programming-interviews-exposed/04-approaches-to-programming-problems/" title="Approaches-to-programming-problems" class="md-nav__link">
+      Approaches-to-programming-problems
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
+    
+    <label class="md-nav__link" for="nav-7">
+      Consulting
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-7">
+        Consulting
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7-1" type="checkbox" id="nav-7-1">
+    
+    <label class="md-nav__link" for="nav-7-1">
+      Pedro Conchas
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-7-1">
+        Pedro Conchas
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../consulting/pconchas/01_caso/" title="Car Shop " class="md-nav__link">
+      Car Shop 
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#task-cancellation" title="Task cancellation" class="md-nav__link">
+    Task cancellation
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cancellation-policy" title="Cancellation policy" class="md-nav__link">
+    Cancellation policy
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#interruption" title="Interruption" class="md-nav__link">
+    Interruption
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#interruption-policies" title="Interruption policies" class="md-nav__link">
+    Interruption policies
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#responding-to-interruption" title="Responding to interruption" class="md-nav__link">
+    Responding to interruption
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-timed-run" title="Example: timed run" class="md-nav__link">
+    Example: timed run
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cancellation-via-future" title="Cancellation via Future" class="md-nav__link">
+    Cancellation via Future
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dealing-with-non-interruptible-blocking" title="Dealing with non-interruptible blocking" class="md-nav__link">
+    Dealing with non-interruptible blocking
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#encapsulating-nonstandard-cancellation-with-newtaskfor" title="Encapsulating nonstandard cancellation with newTaskFor" class="md-nav__link">
+    Encapsulating nonstandard cancellation with newTaskFor
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#stopping-a-thread-based-service" title="Stopping a thread-based service" class="md-nav__link">
+    Stopping a thread-based service
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-a-logging-service" title="Example: a logging service" class="md-nav__link">
+    Example: a logging service
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#executorservice-shutdown" title="ExecutorService shutdown" class="md-nav__link">
+    ExecutorService shutdown
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#poison-pills-tombstone" title="Poison pills (tombstone)" class="md-nav__link">
+    Poison pills (tombstone)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-a-one-shot-execution-service" title="Example: a one-shot execution service" class="md-nav__link">
+    Example: a one-shot execution service
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#limitations-of-shutdownnow" title="Limitations of shutdownNow" class="md-nav__link">
+    Limitations of shutdownNow
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#handling-abnormal-thread-termination" title="Handling abnormal thread termination" class="md-nav__link">
+    Handling abnormal thread termination
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#uncaught-exception-handlers" title="Uncaught exception handlers" class="md-nav__link">
+    Uncaught exception handlers
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#jvm-shutdown" title="JVM shutdown" class="md-nav__link">
+    JVM shutdown
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#daemon-threads" title="Daemon threads" class="md-nav__link">
+    Daemon threads
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#finalizers" title="Finalizers" class="md-nav__link">
+    Finalizers
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sumary" title="Sumary" class="md-nav__link">
+    Sumary
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="7-cancellation-and-shutdown">7. Cancellation and Shutdown</h1>
+<p>Getting tasks and threads to stop safely, quickly, and reliably is not always easy. Java does not provide any mechanism for safely forcing a thread to stop what it is doing. Instead, it provides interruption, a cooperative mechanism that lets one thread ask another to stop what it is doing.</p>
+<p>The cooperative approach is required because we rarely want a task, thread, or service to stop immediately, since that could leave shared data structures in an inconsistent state. Instead, tasks and services can be coded so that, when requested, they clean up any work currently in progress and then terminate. This provides greater flexibility, since the task code itself is usually better able to assess the cleanup required than is the code requesting cancellation.</p>
+<p>End-of-lifecycle issues can complicate the design and implementation of tasks, services, and applications, and this important element of program design is too often ignored. Dealing well with failure, shutdown, and cancellation is one of the characteristics that distinguishes a well-behaved application from one that merely works.</p>
+<h2 id="task-cancellation">Task cancellation</h2>
+<p>An activity is cancellable if external code can move it to completion before its normal completion. There are a number of reasons why you might want to cancel an activity:</p>
+<ul>
+<li>User-requested cancellation.</li>
+<li>Time-limited activities.</li>
+<li>Application events.</li>
+<li>Errors.</li>
+<li>Shutdown.</li>
+</ul>
+<p><em><strong>There is no safe way to preemptively stop a thread in Java, and therefore no safe way to preemptively stop a task. There are only cooperative mechanisms, by which the task and the code requesting cancellation follow an agreed-upon protocol.</strong></em></p>
+<p>A task that wants to be cancellable must have a cancellation policy that specifies the “how”, “when”, and “what” of cancellation—how other code can request cancellation, when the task checks whether cancellation has been requested, and what actions the task takes in response to a cancellation request.</p>
+<h4 id="cancellation-policy">Cancellation policy</h4>
+<p>Banks have rules about how to submit a stop-payment request, what responsiveness guarantees it makes in processing such requests, and what procedures it follows when payment is actually stopped (such as notifying the other bank involved in the transaction and assessing a fee against the payor’s account). Taken together, these procedures and guarantees comprise the cancellation policy for check payment.</p>
+<h3 id="interruption">Interruption</h3>
+<p>The producer thread generates primes and places them on a blocking queue. If the producer gets ahead of the consumer, the queue will fill up and put will block. What happens if the consumer tries to cancel the producer task while it is blocked in <code>put</code>? It can call <code>cancel</code> which will set the cancelled flag—but the producer will never check the flag because it will never emerge from the blocking put (because the consumer has stopped retrieving primes from the queue).</p>
+<p>Thread interruption is a cooperative mechanism for a thread to signal another thread that it should, at its convenience and if it feels like it, stop what it is doing and do something else.</p>
+<blockquote>
+<p>There is nothing in the API or language specification that ties interruption to any specific cancellation semantics, but in practice, using interruption for anything but cancellation is fragile and difficult to sustain in larger applications.</p>
+</blockquote>
+<div class="codehilite"><pre><span></span><span class="kd">class</span> <span class="nc">BrokenPrimeProducer</span> <span class="kd">extends</span> <span class="n">Thread</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="kd">final</span> <span class="n">BlockingQueue</span><span class="o">&lt;</span><span class="n">BigInteger</span><span class="o">&gt;</span> <span class="n">queue</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="kd">volatile</span> <span class="kt">boolean</span> <span class="n">cancelled</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span>
+
+    <span class="n">BrokenPrimeProducer</span><span class="o">(</span><span class="n">BlockingQueue</span><span class="o">&lt;</span><span class="n">BigInteger</span><span class="o">&gt;</span> <span class="n">queue</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">queue</span> <span class="o">=</span> <span class="n">queue</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">run</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">try</span> <span class="o">{</span>
+            <span class="n">BigInteger</span> <span class="n">p</span> <span class="o">=</span> <span class="n">BigInteger</span><span class="o">.</span><span class="na">ONE</span><span class="o">;</span>
+            <span class="k">while</span> <span class="o">(!</span><span class="n">cancelled</span><span class="o">)</span>
+                <span class="n">queue</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">p</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="na">nextProbablePrime</span><span class="o">());</span>
+        <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">InterruptedException</span> <span class="n">consumed</span><span class="o">)</span> <span class="o">{</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">cancel</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">cancelled</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kt">void</span> <span class="nf">consumePrimes</span><span class="o">()</span> <span class="kd">throws</span> <span class="n">InterruptedException</span> <span class="o">{</span> 
+        <span class="n">BlockingQueue</span><span class="o">&lt;</span><span class="n">BigInteger</span><span class="o">&gt;</span> <span class="n">primes</span> <span class="o">=</span> <span class="o">...;</span>
+        <span class="n">BrokenPrimeProducer</span> <span class="n">producer</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BrokenPrimeProducer</span><span class="o">(</span><span class="n">primes</span><span class="o">);</span> 
+        <span class="n">producer</span><span class="o">.</span><span class="na">start</span><span class="o">();</span>
+
+        <span class="k">try</span> <span class="o">{</span>
+            <span class="k">while</span> <span class="o">(</span><span class="n">needMorePrimes</span><span class="o">())</span>
+                <span class="n">consume</span><span class="o">(</span><span class="n">primes</span><span class="o">.</span><span class="na">take</span><span class="o">());</span>
+        <span class="o">}</span> <span class="k">finally</span> <span class="o">{</span>
+            <span class="n">producer</span><span class="o">.</span><span class="na">cancel</span><span class="o">();</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<p>Each thread has a boolean <em>interrupted status</em>; <em><strong>interrupting a thread sets its interrupted status to true.</strong></em> Thread contains methods for interrupting a thread and querying the interrupted status of a thread. The interrupt method interrupts the target thread, and isInterrupted returns the interrupted status of the target thread. <em><strong>The poorly named static <code>interrupted</code> method clears the interrupted status of the current thread and returns its previous value; this is the only way to clear the interrupted status.</strong></em></p>
+<p>Blocking library methods like <code>Thread.sleep</code> and <code>Object.wait</code> try to detect when a thread has been interrupted and return early. <em><strong>They respond to interruption by clearing the interrupted status and throwing <code>InterruptedException</code>, indicating that the blocking operation completed early due to interruption.</strong></em> The JVM makes no guarantees on how quickly a blocking method will detect interruption, but in practice this happens reasonably quickly.</p>
+<p>If a thread is interrupted when it is not blocked, its interrupted status is set, and it is up to the activity being cancelled to poll the interrupted status to detect interruption. In this way interruption is “sticky”—if it doesn’t trigger an <code>InterruptedException</code>, evidence of interruption persists until someone deliberately clears the interrupted status.</p>
+<blockquote>
+<p><em><strong>Calling interrupt does not necessarily stop the target thread from doing what it is doing; it merely delivers the message that interruption has been requested.</strong></em></p>
+</blockquote>
+<p>A good way to think about interruption is that it does not actually interrupt a running thread; it just requests that the thread interrupt itself at the next convenient opportunity. (These opportunities are called cancellation points.) Some methods, such as <code>wait</code>, <code>sleep</code>, and <code>join</code>, take such requests seriously, throwing an exception when they receive an interrupt request or encounter an already set interrupt status upon entry. <em><strong>Well behaved methods may totally ignore such requests so long as they leave the interruption request in place so that calling code can do something with it. Poorly behaved methods swallow the interrupt request, thus denying code further up the call stack the opportunity to act on it.</strong></em></p>
+<p>The static <code>interrupted</code> method should be used with caution, because it clears the current thread’s interrupted status. If you call interrupted and it returns true, unless you are planning to swallow the interruption, you should do something with it—either throw <code>InterruptedException</code> or restore the interrupted status by calling <code>interrupt</code> again.</p>
+<p><code>BrokenPrimeProducer</code> illustrates how custom cancellation mechanisms do not always interact well with blocking library methods. If you code your tasks to be responsive to interruption, you can use interruption as your cancellation mechanism and take advantage of the interruption support provided by many library classes.</p>
+<blockquote>
+<p>Interruption is usually the most sensible way to implement cancellation.</p>
+</blockquote>
+<p><code>BrokenPrimeProducer</code> can be easily fixed (and simplified) by using interruption instead of a boolean flag to request cancellation. There are two points in each loop iteration where interruption may be detected: in the blocking <code>put</code> call, and by explicitly polling the interrupted status in the loop header. The explicit test is not strictly necessary here because of the blocking <code>put</code> call, but it makes <code>PrimeProducer</code> more responsive to interruption because it checks for interruption before starting the lengthy task of searching for a prime, rather than after. When calls to interruptible blocking methods are not frequent enough to deliver the desired responsiveness, explicitly testing the interrupted status can help.</p>
+<div class="codehilite"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">PrimeProducer</span> <span class="kd">extends</span> <span class="n">Thread</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="kd">final</span> <span class="n">BlockingQueue</span><span class="o">&lt;</span><span class="n">BigInteger</span><span class="o">&gt;</span> <span class="n">queue</span><span class="o">;</span>
+
+    <span class="n">PrimeProducer</span><span class="o">(</span><span class="n">BlockingQueue</span><span class="o">&lt;</span><span class="n">BigInteger</span><span class="o">&gt;</span> <span class="n">queue</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">queue</span> <span class="o">=</span> <span class="n">queue</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">run</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">try</span> <span class="o">{</span>
+            <span class="n">BigInteger</span> <span class="n">p</span> <span class="o">=</span> <span class="n">BigInteger</span><span class="o">.</span><span class="na">ONE</span><span class="o">;</span>
+            <span class="k">while</span> <span class="o">(!</span><span class="n">Thread</span><span class="o">.</span><span class="na">currentThread</span><span class="o">().</span><span class="na">isInterrupted</span><span class="o">())</span>
+                <span class="n">queue</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">p</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="na">nextProbablePrime</span><span class="o">());</span>
+        <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">InterruptedException</span> <span class="n">consumed</span><span class="o">)</span> <span class="o">{</span>
+            <span class="cm">/* Allow thread to exit */</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">cancel</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">interrupt</span><span class="o">();</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<h3 id="interruption-policies">Interruption policies</h3>
+<p><em><strong>Just as tasks should have a cancellation policy, threads should have an interruption policy. An interruption policy determines how a thread interprets an interruption request—what it does (if anything) when one is detected, what units of work are considered atomic with respect to interruption, and how quickly it reacts to interruption.</strong></em></p>
+<p>The most sensible interruption policy is some form of thread-level or service- level cancellation: exit as quickly as practical, cleaning up if necessary, and possibly notifying some owning entity that the thread is exiting. It is possible to establish other interruption policies, such as pausing or resuming a service, but threads or thread pools with nonstandard interruption policies may need to be restricted to tasks that have been written with an awareness of the policy.</p>
+<p>It is important to distinguish between how tasks and threads should react to interruption. A single interrupt request may have more than one desired recipient—interrupting a worker thread in a thread pool can mean both “cancel the current task” and “shut down the worker thread”.</p>
+<p><em><strong>Tasks do not execute in threads they own; they borrow threads owned by a service such as a thread pool. Code that doesn’t own the thread (for a thread pool, any code outside of the thread pool implementation) should be careful to preserve the interrupted status so that the owning code can eventually act on it, even if the “guest” code acts on the interruption as well.</strong></em> (If you are house-sitting for someone, you don’t throw out the mail that comes while they’re away—you save it and let them deal with it when they get back, even if you do read their magazines.)</p>
+<p><em><strong>This is why most blocking library methods simply throw <code>InterruptedException</code> in response to an interrupt. They will never execute in a thread they own, so they implement the most reasonable cancellation policy for task or library code: get out of the way as quickly as possible and communicate the interruption back to the caller so that code higher up on the call stack can take further action.</strong></em></p>
+<p>A task needn’t necessarily drop everything when it detects an interruption request—it can choose to postpone it until a more opportune time by remembering that it was interrupted, finishing the task it was performing, and then throwing InterruptedException or otherwise indicating interruption. This technique can protect data structures from corruption when an activity is interrupted in the middle of an update.</p>
+<p>A task should not assume anything about the interruption policy of its executing thread unless it is explicitly designed to run within a service that has a specific interruption policy. Whether a task interprets interruption as cancellation or takes some other action on interruption, it should take care to preserve the executing thread’s interruption status. <em><strong>If it is not simply going to propagate <code>InterruptedException</code> to its caller, it should restore the interruption status after catching <code>InterruptedException</code></strong></em>:</p>
+<div class="codehilite"><pre><span></span><span class="n">Thread</span><span class="o">.</span><span class="na">currentThread</span><span class="o">().</span><span class="na">interrupt</span><span class="o">();</span>
+</pre></div>
+
+
+<p>Just as task code should not make assumptions about what interruption means to its executing thread, cancellation code should not make assumptions about the interruption policy of arbitrary threads. A thread should be interrupted only by its owner; the owner can encapsulate knowledge of the thread’s interruption policy in an appropriate cancellation mechanism such as a shutdown method.</p>
+<blockquote>
+<p>Because each thread has its own interruption policy, you should not interrupt a thread unless you know what interruption means to that thread.</p>
+</blockquote>
+<h3 id="responding-to-interruption">Responding to interruption</h3>
+<p>As mentioned, when you call an interruptible blocking method such as <code>Thread.sleep</code> or <code>BlockingQueue.put</code>, there are two practical strategies for handling <code>InterruptedException</code>:</p>
+<ul>
+<li>
+<p><em><strong>Propagate the exception</strong></em> (possibly after some task-specific cleanup), making your method an interruptible blocking method, too; or</p>
+</li>
+<li>
+<p><em><strong>Restore the interruption status</strong></em> so that code higher up on the call stack can deal with it (<code>Thread.currentThread().interrupt()</code>).</p>
+</li>
+</ul>
+<p>Propagating <code>InterruptedException</code>:</p>
+<div class="codehilite"><pre><span></span><span class="n">BlockingQueue</span><span class="o">&lt;</span><span class="n">Task</span><span class="o">&gt;</span> <span class="n">queue</span><span class="o">;</span>
+<span class="o">...</span>
+<span class="kd">public</span> <span class="n">Task</span> <span class="nf">getNextTask</span><span class="o">()</span> <span class="kd">throws</span> <span class="n">InterruptedException</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="n">queue</span><span class="o">.</span><span class="na">take</span><span class="o">();</span> 
+<span class="o">}</span>
+</pre></div>
+
+
+<p><em><strong>If you don’t want to or cannot propagate <code>InterruptedException</code> (perhaps because your task is defined by a <code>Runnable</code>), you need to find another way to preserve the interruption request.</strong></em> What you should not do is swallow the <code>InterruptedException</code> by catching it and doing nothing in the <code>catch</code> block, unless your code is actually implementing the interruption policy for a thread. <em><strong><code>PrimeProducer</code> swallows the interrupt, but does so with the knowledge that the thread is about to terminate and that therefore there is no code higher up on the call stack that needs to know about the interruption. Most code does not know what thread it will run in and so should preserve the interrupted status.</strong></em></p>
+<blockquote>
+<p>Only code that implements a thread’s interruption policy may swallow an interruption request. General-purpose task and library code should never swallow interruption requests.</p>
+</blockquote>
+<p><em><strong>Activities that do not support cancellation but still call interruptible blocking methods will have to call them in a loop, retrying when interruption is detected.</strong></em> In this case, they should save the interruption status locally and restore it just before returning, as shown in below code, rather than immediately upon catching <code>InterruptedException</code>. Setting the interrupted status too early could result in an infinite loop, because most interruptible blocking methods check the interrupted status on entry and throw <code>InterruptedException</code> immediately if it is set. (Interruptible methods usually poll for interruption before blocking or doing any significant work, so as to be as responsive to interruption as possible.)</p>
+<div class="codehilite"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">NonCancelableTask</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="n">Task</span> <span class="nf">getNextTask</span><span class="o">(</span><span class="n">BlockingQueue</span><span class="o">&lt;</span><span class="n">Task</span><span class="o">&gt;</span> <span class="n">queue</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kt">boolean</span> <span class="n">interrupted</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span>
+        <span class="k">try</span> <span class="o">{</span>
+            <span class="k">while</span> <span class="o">(</span><span class="kc">true</span><span class="o">)</span> <span class="o">{</span>
+                <span class="k">try</span> <span class="o">{</span>
+                    <span class="k">return</span> <span class="n">queue</span><span class="o">.</span><span class="na">take</span><span class="o">();</span>
+                <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">InterruptedException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+                    <span class="n">interrupted</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
+                    <span class="c1">// fall through and retry</span>
+                <span class="o">}</span>
+            <span class="o">}</span>
+        <span class="o">}</span> <span class="k">finally</span> <span class="o">{</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">interrupted</span><span class="o">)</span>
+                <span class="n">Thread</span><span class="o">.</span><span class="na">currentThread</span><span class="o">().</span><span class="na">interrupt</span><span class="o">();</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<p>If your code does not call interruptible blocking methods, it can still be made responsive to interruption by polling the current thread’s interrupted status throughout the task code.</p>
+<p>Cancellation can involve state other than the interruption status; interruption can be used to get the thread’s attention, and information stored elsewhere by the interrupting thread can be used to provide further instructions for the interrupted thread. (Be sure to use synchronization when accessing that information.)</p>
+<p>For example, when a worker thread owned by a <code>ThreadPoolExecutor</code> detects interruption, it checks whether the pool is being shut down.</p>
+<h3 id="example-timed-run">Example: timed run</h3>
+<p>Below code shows an attempt at running an arbitrary <code>Runnable</code> for a given amount of time. It runs the task in the calling thread and schedules a cancellation task to interrupt it after a given time interval. This addresses the problem of unchecked exceptions thrown from the task, since they can then be caught by the caller of <code>timedRun</code>.
+This is an appealingly simple approach, but it violates the rules: <em><strong>you should know a thread’s interruption policy before interrupting it.</strong></em> Since timedRun can be called from an arbitrary thread, it cannot know the calling thread’s interruption policy.</p>
+<div class="codehilite"><pre><span></span>    <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">ScheduledExecutorService</span> <span class="n">cancelExec</span> <span class="o">=</span> <span class="n">Executors</span><span class="o">.</span><span class="na">newScheduledThreadPool</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">timedRun</span><span class="o">(</span><span class="n">Runnable</span> <span class="n">r</span><span class="o">,</span>
+                                <span class="kt">long</span> <span class="n">timeout</span><span class="o">,</span> <span class="n">TimeUnit</span> <span class="n">unit</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kd">final</span> <span class="n">Thread</span> <span class="n">taskThread</span> <span class="o">=</span> <span class="n">Thread</span><span class="o">.</span><span class="na">currentThread</span><span class="o">();</span>
+        <span class="n">cancelExec</span><span class="o">.</span><span class="na">schedule</span><span class="o">(</span><span class="k">new</span> <span class="n">Runnable</span><span class="o">()</span> <span class="o">{</span>
+            <span class="kd">public</span> <span class="kt">void</span> <span class="nf">run</span><span class="o">()</span> <span class="o">{</span>
+                <span class="n">taskThread</span><span class="o">.</span><span class="na">interrupt</span><span class="o">();</span>
+            <span class="o">}</span>
+        <span class="o">},</span> <span class="n">timeout</span><span class="o">,</span> <span class="n">unit</span><span class="o">);</span>
+
+        <span class="n">r</span><span class="o">.</span><span class="na">run</span><span class="o">();</span>
+    <span class="o">}</span>
+</pre></div>
+
+
+<p>If the task completes before the timeout, the cancellation task that interrupts the thread in which <code>timedRun</code> was called could go off after <code>timedRun</code> has returned to its caller. We don’t know what code will be running when that happens, but the result won’t be good.</p>
+<p>Further, if the task is not responsive to interruption, <code>timedRun</code> will not return until the task finishes, which may be long after the desired timeout (or even not at all).</p>
+<p>In following example, the thread created to run the task can have its own execution policy, and even if the task doesn’t respond to the interrupt, the timed run method can still return to its caller. After starting the task thread, <code>timedRun</code> executes a timed <code>join</code> with the newly created thread. After <code>join</code> returns, it checks if an exception was thrown from the task and if so, rethrows it in the thread calling timedRun. The saved <code>Throwable</code> is shared between the two threads, and so is declared <code>volatile</code> to safely publish it from the task thread to the timedRun thread.</p>
+<div class="codehilite"><pre><span></span>    <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">ScheduledExecutorService</span> <span class="n">cancelExec</span> <span class="o">=</span> <span class="n">Executors</span><span class="o">.</span><span class="na">newScheduledThreadPool</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">timedRun</span><span class="o">(</span><span class="kd">final</span> <span class="n">Runnable</span> <span class="n">r</span><span class="o">,</span>
+                                <span class="kt">long</span> <span class="n">timeout</span><span class="o">,</span> <span class="n">TimeUnit</span> <span class="n">unit</span><span class="o">)</span>
+            <span class="kd">throws</span> <span class="n">InterruptedException</span> <span class="o">{</span>
+        <span class="kd">class</span> <span class="nc">RethrowableTask</span> <span class="kd">implements</span> <span class="n">Runnable</span> <span class="o">{</span>
+            <span class="kd">private</span> <span class="kd">volatile</span> <span class="n">Throwable</span> <span class="n">t</span><span class="o">;</span>
+
+            <span class="kd">public</span> <span class="kt">void</span> <span class="nf">run</span><span class="o">()</span> <span class="o">{</span>
+                <span class="k">try</span> <span class="o">{</span>
+                    <span class="n">r</span><span class="o">.</span><span class="na">run</span><span class="o">();</span>
+                <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">Throwable</span> <span class="n">t</span><span class="o">)</span> <span class="o">{</span>
+                    <span class="k">this</span><span class="o">.</span><span class="na">t</span> <span class="o">=</span> <span class="n">t</span><span class="o">;</span>
+                <span class="o">}</span>
+            <span class="o">}</span>
+
+            <span class="kt">void</span> <span class="nf">rethrow</span><span class="o">()</span> <span class="o">{</span>
+                <span class="k">if</span> <span class="o">(</span><span class="n">t</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span>
+                    <span class="k">throw</span> <span class="n">launderThrowable</span><span class="o">(</span><span class="n">t</span><span class="o">);</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+
+        <span class="n">RethrowableTask</span> <span class="n">task</span> <span class="o">=</span> <span class="k">new</span> <span class="n">RethrowableTask</span><span class="o">();</span>
+        <span class="kd">final</span> <span class="n">Thread</span> <span class="n">taskThread</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Thread</span><span class="o">(</span><span class="n">task</span><span class="o">);</span>
+        <span class="n">taskThread</span><span class="o">.</span><span class="na">start</span><span class="o">();</span>
+        <span class="n">cancelExec</span><span class="o">.</span><span class="na">schedule</span><span class="o">(</span><span class="k">new</span> <span class="n">Runnable</span><span class="o">()</span> <span class="o">{</span>
+            <span class="kd">public</span> <span class="kt">void</span> <span class="nf">run</span><span class="o">()</span> <span class="o">{</span>
+                <span class="n">taskThread</span><span class="o">.</span><span class="na">interrupt</span><span class="o">();</span>
+            <span class="o">}</span>
+        <span class="o">},</span> <span class="n">timeout</span><span class="o">,</span> <span class="n">unit</span><span class="o">);</span>
+        <span class="n">taskThread</span><span class="o">.</span><span class="na">join</span><span class="o">(</span><span class="n">unit</span><span class="o">.</span><span class="na">toMillis</span><span class="o">(</span><span class="n">timeout</span><span class="o">));</span>
+        <span class="n">task</span><span class="o">.</span><span class="na">rethrow</span><span class="o">();</span>
+    <span class="o">}</span>
+</pre></div>
+
+
+<p>This version addresses the problems in the previous examples, but because it relies on a timed <code>join</code>, it shares a deficiency with <code>join</code>: <em><strong>we don’t know if control was returned because the thread exited normally or because the <code>join</code> timed out.</strong></em></p>
+<h3 id="cancellation-via-future">Cancellation via Future</h3>
+<p>We’ve already used an abstraction for managing the lifecycle of a task, dealing with exceptions, and facilitating cancellation: <code>Future</code>.</p>
+<div class="codehilite"><pre><span></span>    <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">ExecutorService</span> <span class="n">taskExec</span> <span class="o">=</span> <span class="n">Executors</span><span class="o">.</span><span class="na">newCachedThreadPool</span><span class="o">();</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">timedRun</span><span class="o">(</span><span class="n">Runnable</span> <span class="n">r</span><span class="o">,</span>
+                                <span class="kt">long</span> <span class="n">timeout</span><span class="o">,</span> <span class="n">TimeUnit</span> <span class="n">unit</span><span class="o">)</span>
+            <span class="kd">throws</span> <span class="n">InterruptedException</span> <span class="o">{</span>
+        <span class="n">Future</span><span class="o">&lt;?&gt;</span> <span class="n">task</span> <span class="o">=</span> <span class="n">taskExec</span><span class="o">.</span><span class="na">submit</span><span class="o">(</span><span class="n">r</span><span class="o">);</span>
+        <span class="k">try</span> <span class="o">{</span>
+            <span class="n">task</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">timeout</span><span class="o">,</span> <span class="n">unit</span><span class="o">);</span>
+        <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">TimeoutException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+            <span class="c1">// task will be cancelled below</span>
+        <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">ExecutionException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+            <span class="c1">// exception thrown in task; rethrow</span>
+            <span class="k">throw</span> <span class="n">launderThrowable</span><span class="o">(</span><span class="n">e</span><span class="o">.</span><span class="na">getCause</span><span class="o">());</span>
+        <span class="o">}</span> <span class="k">finally</span> <span class="o">{</span>
+            <span class="c1">// Harmless if task already completed</span>
+            <span class="n">task</span><span class="o">.</span><span class="na">cancel</span><span class="o">(</span><span class="kc">true</span><span class="o">);</span> <span class="c1">// interrupt if running</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+</pre></div>
+
+
+<p><code>ExecutorService.submit</code> returns a <code>Future</code> describing the task. Future has a cancel method that takes a boolean argument (<code>mayInterruptIfRunning</code>), and returns a value indicating whether the cancellation attempt was successful. <em><strong>(This tells you only whether it was able to deliver the interruption, not whether the task detected and acted on it.) When <code>mayInterruptIfRunning</code> is true and the task is currently running in some thread, then that thread is interrupted. Setting this argument to false means “don’t run this task if it hasn’t started yet”, and should be used for tasks that are not designed to handle interruption.</strong></em></p>
+<p>The task execution threads created by the standard <code>Executor</code> implementations implement an interruption policy that lets tasks be cancelled using interruption, so it is safe to set <code>mayInterruptIfRunning</code> when cancelling tasks through their <code>Future</code> when they are running in a standard Executor. You should not interrupt a pool thread directly when attempting to cancel a task, because you won’t know what task is running when the interrupt request is delivered—do this only through the task’s <code>Future</code>.</p>
+<p>Sample shows a version of <code>timedRun</code> that submits the task to an <code>ExecutorService</code> and retrieves the result with a timed <code>Future.get</code>. If get terminates with a <code>TimeoutException</code>, the task is cancelled via its Future. (To simplify coding, this version calls <code>Future.cancel</code> unconditionally in a finally block, taking advantage of the fact that <em><strong>cancelling a completed task has no effect.</strong></em>) If the underlying computation throws an exception prior to cancellation, it is rethrown from <code>timedRun</code>, which is the most convenient way for the caller to deal with the exception. It also illustrates another good practice: cancelling tasks whose result is no longer needed.</p>
+<blockquote>
+<p>When <code>Future.get</code> throws <code>InterruptedException</code> or <code>TimeoutException</code> and you know that the result is no longer needed by the program, cancel the task with <code>Future.cancel</code>.</p>
+</blockquote>
+<h3 id="dealing-with-non-interruptible-blocking">Dealing with non-interruptible blocking</h3>
+<p>Many blocking library methods respond to interruption by returning early and throwing <code>InterruptedException</code>, which makes it easier to build tasks that are responsive to cancellation. However, not all blocking methods or blocking mechanisms are responsive to interruption; if a thread is blocked performing synchronous socket I/O or waiting to acquire an intrinsic lock, interruption has no effect other than setting the thread’s interrupted status. We can sometimes convince threads blocked in noninterruptible activities to stop by means similar to interruption, but this requires greater awareness of why the thread is blocked.</p>
+<p><code>ReaderThread</code> shows a technique for encapsulating nonstandard cancellation. <code>ReaderThread</code> manages a single socket connection, reading synchronously from the socket and passing any data received to processBuffer. To facilitate terminating a user connection or shutting down the server, <code>ReaderThread</code> overrides interrupt to both deliver a standard interrupt and close the underlying socket; thus interrupting a <code>ReaderThread</code> makes it stop what it is doing whether it is blocked in read or in an interruptible blocking method.</p>
+<div class="codehilite"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">ReaderThread</span> <span class="kd">extends</span> <span class="n">Thread</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="kt">int</span> <span class="n">BUFSZ</span> <span class="o">=</span> <span class="mi">512</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="kd">final</span> <span class="n">Socket</span> <span class="n">socket</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="kd">final</span> <span class="n">InputStream</span> <span class="n">in</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="nf">ReaderThread</span><span class="o">(</span><span class="n">Socket</span> <span class="n">socket</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">socket</span> <span class="o">=</span> <span class="n">socket</span><span class="o">;</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">in</span> <span class="o">=</span> <span class="n">socket</span><span class="o">.</span><span class="na">getInputStream</span><span class="o">();</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">interrupt</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">try</span> <span class="o">{</span>
+            <span class="n">socket</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
+        <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">IOException</span> <span class="n">ignored</span><span class="o">)</span> <span class="o">{</span>
+        <span class="o">}</span> <span class="k">finally</span> <span class="o">{</span>
+            <span class="kd">super</span><span class="o">.</span><span class="na">interrupt</span><span class="o">();</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">run</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">try</span> <span class="o">{</span>
+            <span class="kt">byte</span><span class="o">[]</span> <span class="n">buf</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">byte</span><span class="o">[</span><span class="n">BUFSZ</span><span class="o">];</span>
+            <span class="k">while</span> <span class="o">(</span><span class="kc">true</span><span class="o">)</span> <span class="o">{</span>
+                <span class="kt">int</span> <span class="n">count</span> <span class="o">=</span> <span class="n">in</span><span class="o">.</span><span class="na">read</span><span class="o">(</span><span class="n">buf</span><span class="o">);</span>
+                <span class="k">if</span> <span class="o">(</span><span class="n">count</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="o">)</span>
+                    <span class="k">break</span><span class="o">;</span>
+                <span class="k">else</span> <span class="k">if</span> <span class="o">(</span><span class="n">count</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="o">)</span>
+                    <span class="n">processBuffer</span><span class="o">(</span><span class="n">buf</span><span class="o">,</span> <span class="n">count</span><span class="o">);</span>
+            <span class="o">}</span>
+        <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">IOException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span> <span class="cm">/* Allow thread to exit */</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">processBuffer</span><span class="o">(</span><span class="kt">byte</span><span class="o">[]</span> <span class="n">buf</span><span class="o">,</span> <span class="kt">int</span> <span class="n">count</span><span class="o">)</span> <span class="o">{</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<h3 id="encapsulating-nonstandard-cancellation-with-newtaskfor">Encapsulating nonstandard cancellation with <code>newTaskFor</code></h3>
+<p>The technique used in <code>ReaderThread</code> to encapsulate nonstandard cancellation can be refined using the <code>newTaskFor</code> hook added to <code>ThreadPoolExecutor</code> in Java 6. When a <code>Callable</code> is submitted to an <code>ExecutorService</code>, submit returns a <code>Future</code> that can be used to cancel the task. The <code>newTaskFor</code> hook is a factory method that creates the <code>Future</code> representing the task. It returns a <code>RunnableFuture</code>, an interface that extends both <code>Future</code> and <code>Runnable</code> (and is implemented by <code>FutureTask</code>).</p>
+<p><code>Customizing</code> the task <code>Future</code> allows you to override <code>Future.cancel</code>. Custom cancellation code can perform logging or gather statistics on cancellation, and can also be used to cancel activities that are not responsive to interruption. <code>ReaderThread</code> encapsulates cancellation of socket-using threads by overriding interrupt; the same can be done for tasks by overriding <code>Future.cancel</code>.</p>
+<div class="codehilite"><pre><span></span><span class="kd">public</span> <span class="kd">abstract</span> <span class="kd">class</span> <span class="nc">SocketUsingTask</span> <span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="kd">implements</span> <span class="n">CancellableTask</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="o">{</span>
+    <span class="nd">@GuardedBy</span><span class="o">(</span><span class="s">&quot;this&quot;</span><span class="o">)</span> <span class="kd">private</span> <span class="n">Socket</span> <span class="n">socket</span><span class="o">;</span>
+
+    <span class="kd">protected</span> <span class="kd">synchronized</span> <span class="kt">void</span> <span class="nf">setSocket</span><span class="o">(</span><span class="n">Socket</span> <span class="n">s</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">socket</span> <span class="o">=</span> <span class="n">s</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">synchronized</span> <span class="kt">void</span> <span class="nf">cancel</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">try</span> <span class="o">{</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">socket</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span>
+                <span class="n">socket</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
+        <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">IOException</span> <span class="n">ignored</span><span class="o">)</span> <span class="o">{</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="n">RunnableFuture</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="nf">newTask</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="k">new</span> <span class="n">FutureTask</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;(</span><span class="k">this</span><span class="o">)</span> <span class="o">{</span>
+            <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">cancel</span><span class="o">(</span><span class="kt">boolean</span> <span class="n">mayInterruptIfRunning</span><span class="o">)</span> <span class="o">{</span>
+                <span class="k">try</span> <span class="o">{</span>
+                    <span class="n">SocketUsingTask</span><span class="o">.</span><span class="na">this</span><span class="o">.</span><span class="na">cancel</span><span class="o">();</span>
+                <span class="o">}</span> <span class="k">finally</span> <span class="o">{</span>
+                    <span class="k">return</span> <span class="kd">super</span><span class="o">.</span><span class="na">cancel</span><span class="o">(</span><span class="n">mayInterruptIfRunning</span><span class="o">);</span>
+                <span class="o">}</span>
+            <span class="o">}</span>
+        <span class="o">};</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="kd">interface</span> <span class="nc">CancellableTask</span> <span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="kd">extends</span> <span class="n">Callable</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="o">{</span>
+    <span class="kt">void</span> <span class="nf">cancel</span><span class="o">();</span>
+
+    <span class="n">RunnableFuture</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="nf">newTask</span><span class="o">();</span>
+<span class="o">}</span>
+
+<span class="nd">@ThreadSafe</span>
+<span class="kd">class</span> <span class="nc">CancellingExecutor</span> <span class="kd">extends</span> <span class="n">ThreadPoolExecutor</span> <span class="o">{</span>
+    <span class="c1">// ...</span>
+    <span class="kd">protected</span> <span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">RunnableFuture</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="nf">newTaskFor</span><span class="o">(</span><span class="n">Callable</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">callable</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">callable</span> <span class="k">instanceof</span> <span class="n">CancellableTask</span><span class="o">)</span>
+            <span class="k">return</span> <span class="o">((</span><span class="n">CancellableTask</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;)</span> <span class="n">callable</span><span class="o">).</span><span class="na">newTask</span><span class="o">();</span>
+        <span class="k">else</span>
+            <span class="k">return</span> <span class="kd">super</span><span class="o">.</span><span class="na">newTaskFor</span><span class="o">(</span><span class="n">callable</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<p><code>CancellableTask</code> defines a <code>CancellableTask</code> interface that extends <code>Callable</code> and adds a <code>cancel</code> method and a <code>newTask</code> factory method for constructing a <code>RunnableFuture</code>. <code>CancellingExecutor</code> extends <code>ThreadPoolExecutor</code>, and overrides <code>newTaskFor</code> to let a <code>CancellableTask</code> create its own <code>Future</code>. <code>SocketUsingTask</code> implements <code>CancellableTask</code> and defines <code>Future.cancel</code>
+to close the socket as well as call <code>super.cancel</code>. If a <code>SocketUsingTask</code> is cancelled through its <code>Future</code>, the socket is closed and the executing thread is interrupted. This increases the task’s responsiveness to cancellation: not only can it safely call interruptible blocking methods while remaining responsive to cancellation, but it can also call blocking socket I/O methods.</p>
+<h2 id="stopping-a-thread-based-service">Stopping a thread-based service</h2>
+<p>Applications commonly create services that own threads, such as thread pools, and the lifetime of these services is usually longer than that of the method that creates them. If the application is to shut down gracefully, the threads owned by these services need to be terminated. Since there is no preemptive way to stop a thread, they must instead be persuaded to shut down on their own.</p>
+<p>Sensible encapsulation practices dictate that <em><strong>you should not manipulate a thread—interrupt it, modify its priority, etc.—unless you own it.</strong></em> The thread API has no formal concept of thread ownership: a thread is represented with a Thread object that can be freely shared like any other object. However, <em><strong>it makes sense to think of a thread as having an owner, and this is usually the class that created the thread.</strong></em> So a thread pool owns its worker threads, and if those threads need to be interrupted, the thread pool should take care of it.</p>
+<p>As with any other encapsulated object, <em><strong>thread ownership is not transitive: the application may own the service and the service may own the worker threads, but the application doesn’t own the worker threads and therefore should not attempt to stop them directly.</strong></em> Instead, the service should provide <em>lifecycle methods</em> for shutting itself down that also shut down the owned threads; then the application can shut down the service, and the service can shut down the threads. <code>ExecutorService</code> provides the <em>shutdown</em> and <em>shutdownNow</em> methods; other thread-owning services should provide a similar shutdown mechanism.</p>
+<blockquote>
+<p>Provide <em>lifecycle methods</em> whenever a thread-owning service has a lifetime longer than that of the method that created it.</p>
+</blockquote>
+<h3 id="example-a-logging-service">Example: a logging service</h3>
+<div class="codehilite"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">LogService</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="kd">final</span> <span class="n">BlockingQueue</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">queue</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="kd">final</span> <span class="n">LoggerThread</span> <span class="n">loggerThread</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="kd">final</span> <span class="n">PrintWriter</span> <span class="n">writer</span><span class="o">;</span>
+    <span class="nd">@GuardedBy</span><span class="o">(</span><span class="s">&quot;this&quot;</span><span class="o">)</span> <span class="kd">private</span> <span class="kt">boolean</span> <span class="n">isShutdown</span><span class="o">;</span>
+    <span class="nd">@GuardedBy</span><span class="o">(</span><span class="s">&quot;this&quot;</span><span class="o">)</span> <span class="kd">private</span> <span class="kt">int</span> <span class="n">reservations</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="nf">LogService</span><span class="o">(</span><span class="n">Writer</span> <span class="n">writer</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">queue</span> <span class="o">=</span> <span class="k">new</span> <span class="n">LinkedBlockingQueue</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;();</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">loggerThread</span> <span class="o">=</span> <span class="k">new</span> <span class="n">LoggerThread</span><span class="o">();</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">writer</span> <span class="o">=</span> <span class="k">new</span> <span class="n">PrintWriter</span><span class="o">(</span><span class="n">writer</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">start</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">loggerThread</span><span class="o">.</span><span class="na">start</span><span class="o">();</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">stop</span><span class="o">()</span> <span class="o">{</span>
+        <span class="kd">synchronized</span> <span class="o">(</span><span class="k">this</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">isShutdown</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
+        <span class="o">}</span>
+        <span class="n">loggerThread</span><span class="o">.</span><span class="na">interrupt</span><span class="o">();</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">log</span><span class="o">(</span><span class="n">String</span> <span class="n">msg</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">InterruptedException</span> <span class="o">{</span>
+        <span class="kd">synchronized</span> <span class="o">(</span><span class="k">this</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">isShutdown</span><span class="o">)</span>
+                <span class="k">throw</span> <span class="k">new</span> <span class="n">IllegalStateException</span><span class="o">(</span><span class="cm">/*...*/</span><span class="o">);</span>
+            <span class="o">++</span><span class="n">reservations</span><span class="o">;</span>
+        <span class="o">}</span>
+        <span class="n">queue</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">msg</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="kd">private</span> <span class="kd">class</span> <span class="nc">LoggerThread</span> <span class="kd">extends</span> <span class="n">Thread</span> <span class="o">{</span>
+        <span class="kd">public</span> <span class="kt">void</span> <span class="nf">run</span><span class="o">()</span> <span class="o">{</span>
+            <span class="k">try</span> <span class="o">{</span>
+                <span class="k">while</span> <span class="o">(</span><span class="kc">true</span><span class="o">)</span> <span class="o">{</span>
+                    <span class="k">try</span> <span class="o">{</span>
+                        <span class="kd">synchronized</span> <span class="o">(</span><span class="n">LogService</span><span class="o">.</span><span class="na">this</span><span class="o">)</span> <span class="o">{</span>
+                            <span class="k">if</span> <span class="o">(</span><span class="n">isShutdown</span> <span class="o">&amp;&amp;</span> <span class="n">reservations</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span>
+                                <span class="k">break</span><span class="o">;</span>
+                        <span class="o">}</span>
+                        <span class="n">String</span> <span class="n">msg</span> <span class="o">=</span> <span class="n">queue</span><span class="o">.</span><span class="na">take</span><span class="o">();</span>
+                        <span class="kd">synchronized</span> <span class="o">(</span><span class="n">LogService</span><span class="o">.</span><span class="na">this</span><span class="o">)</span> <span class="o">{</span>
+                            <span class="o">--</span><span class="n">reservations</span><span class="o">;</span>
+                        <span class="o">}</span>
+                        <span class="n">writer</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">msg</span><span class="o">);</span>
+                    <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">InterruptedException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span> <span class="cm">/* retry */</span>
+                    <span class="o">}</span>
+                <span class="o">}</span>
+            <span class="o">}</span> <span class="k">finally</span> <span class="o">{</span>
+                <span class="n">writer</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<h3 id="executorservice-shutdown">ExecutorService shutdown</h3>
+<p><code>ExecutorService</code> offers two ways to shut down: graceful shutdown with <code>shutdown</code>, and abrupt shutdown with <code>shutdownNow</code>. In an abrupt shutdown, <code>shutdownNow</code> returns the list of tasks that had not yet started after attempting to cancel all actively executing tasks. The two different termination options offer a tradeoff between safety and responsiveness: abrupt termination is faster but riskier because tasks may be interrupted in the middle of execution, and normal termination is slower but safer because the <code>ExecutorService</code> does not shut down until all queued tasks are processed. <em><strong>Other thread-owning services should consider providing a similar choice of shutdown modes.</strong></em></p>
+<p>Simple programs can get away with starting and shutting down a global <code>ExecutorService</code> from main. More sophisticated programs are likely to encapsulate an <code>ExecutorService</code> behind a higher-level service that provides its own lifecycle methods, such as the below sample, that delegates to an <code>ExecutorService</code> instead of managing its own threads. Encapsulating an <code>ExecutorService</code> extends the ownership chain from application to service to thread by adding another link; each member of the chain manages the lifecycle of the services or threads it owns.</p>
+<div class="codehilite"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">LogService</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="kd">final</span> <span class="n">ExecutorService</span> <span class="n">exec</span> <span class="o">=</span> <span class="n">newSingleThreadExecutor</span><span class="o">();</span> <span class="o">...</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">start</span><span class="o">()</span> <span class="o">{</span> <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">stop</span><span class="o">()</span> <span class="kd">throws</span> <span class="n">InterruptedException</span> <span class="o">{</span> 
+        <span class="k">try</span> <span class="o">{</span>
+            <span class="n">exec</span><span class="o">.</span><span class="na">shutdown</span><span class="o">();</span>
+            <span class="n">exec</span><span class="o">.</span><span class="na">awaitTermination</span><span class="o">(</span><span class="n">TIMEOUT</span><span class="o">,</span> <span class="n">UNIT</span><span class="o">);</span>
+        <span class="o">}</span> <span class="k">finally</span> <span class="o">{</span>
+            <span class="n">writer</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
+        <span class="o">}</span> 
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">log</span><span class="o">(</span><span class="n">String</span> <span class="n">msg</span><span class="o">)</span> <span class="o">{</span> 
+        <span class="k">try</span> <span class="o">{</span>
+            <span class="n">exec</span><span class="o">.</span><span class="na">execute</span><span class="o">(</span><span class="k">new</span> <span class="n">WriteTask</span><span class="o">(</span><span class="n">msg</span><span class="o">));</span>
+        <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">RejectedExecutionException</span> <span class="n">ignored</span><span class="o">)</span> <span class="o">{</span> <span class="o">}</span>
+    <span class="o">}</span> 
+<span class="o">}</span>
+</pre></div>
+
+
+<h3 id="poison-pills-tombstone">Poison pills (tombstone)</h3>
+<p>Another way to convince a producer-consumer service to shut down is with a poison pill: <em><strong>a recognizable object placed on the queue that means “when you get this, stop.”</strong></em> With a FIFO queue, poison pills ensure that consumers finish the work on their queue before shutting down, since any work submitted prior to submitting the poison pill will be retrieved before the pill; producers should not submit any work after putting a poison pill on the queue. Poison pills work only when the number of producers and consumers is known. Poison pills work reliably only with unbounded queues.</p>
+<h3 id="example-a-one-shot-execution-service">Example: a one-shot execution service</h3>
+<p>If a method needs to process a batch of tasks and does not return until all the tasks are finished, it can simplify service lifecycle management by using a private <code>Executor</code> whose lifetime is bounded by that method.</p>
+<p>The <code>checkMail</code> method in below sample checks for new mail in parallel on a number of hosts. It creates a private <code>Executor</code> and submits a task for each host: it then shuts down the <code>executor</code> and waits for termination, which occurs when all the mail-checking tasks have completed.</p>
+<div class="codehilite"><pre><span></span>    <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">checkMail</span><span class="o">(</span><span class="n">Set</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">hosts</span><span class="o">,</span> <span class="kt">long</span> <span class="n">timeout</span><span class="o">,</span> <span class="n">TimeUnit</span> <span class="n">unit</span><span class="o">)</span>
+            <span class="kd">throws</span> <span class="n">InterruptedException</span> <span class="o">{</span>
+        <span class="n">ExecutorService</span> <span class="n">exec</span> <span class="o">=</span> <span class="n">Executors</span><span class="o">.</span><span class="na">newCachedThreadPool</span><span class="o">();</span>
+        <span class="kd">final</span> <span class="n">AtomicBoolean</span> <span class="n">hasNewMail</span> <span class="o">=</span> <span class="k">new</span> <span class="n">AtomicBoolean</span><span class="o">(</span><span class="kc">false</span><span class="o">);</span>
+        <span class="k">try</span> <span class="o">{</span>
+            <span class="k">for</span> <span class="o">(</span><span class="kd">final</span> <span class="n">String</span> <span class="n">host</span> <span class="o">:</span> <span class="n">hosts</span><span class="o">)</span>
+                <span class="n">exec</span><span class="o">.</span><span class="na">execute</span><span class="o">(</span><span class="k">new</span> <span class="n">Runnable</span><span class="o">()</span> <span class="o">{</span>
+                    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">run</span><span class="o">()</span> <span class="o">{</span>
+                        <span class="k">if</span> <span class="o">(</span><span class="n">checkMail</span><span class="o">(</span><span class="n">host</span><span class="o">))</span>
+                            <span class="n">hasNewMail</span><span class="o">.</span><span class="na">set</span><span class="o">(</span><span class="kc">true</span><span class="o">);</span>
+                    <span class="o">}</span>
+                <span class="o">});</span>
+        <span class="o">}</span> <span class="k">finally</span> <span class="o">{</span>
+            <span class="n">exec</span><span class="o">.</span><span class="na">shutdown</span><span class="o">();</span>
+            <span class="n">exec</span><span class="o">.</span><span class="na">awaitTermination</span><span class="o">(</span><span class="n">timeout</span><span class="o">,</span> <span class="n">unit</span><span class="o">);</span>
+        <span class="o">}</span>
+        <span class="k">return</span> <span class="n">hasNewMail</span><span class="o">.</span><span class="na">get</span><span class="o">();</span>
+    <span class="o">}</span>
+</pre></div>
+
+
+<p><em><strong>Using a private Executor whose lifetime is bounded by a method call</strong></em></p>
+<h3 id="limitations-of-shutdownnow">Limitations of shutdownNow</h3>
+<p>When an <code>ExecutorService</code> is shut down abruptly with <code>shutdownNow</code>, it attempts to cancel the tasks currently in progress and returns a list of tasks that were submitted but never started so that they can be logged or saved for later processing.
+However, there is no general way to find out which tasks started but did not complete. <em><strong>This means that there is no way of knowing the state of the tasks in progress at shutdown time unless the tasks themselves perform some sort of checkpointing.</strong></em> To know which tasks have not completed, you need to know not only which tasks didn’t start, but also which tasks were in progress when the executor was shut down.</p>
+<div class="codehilite"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">TrackingExecutor</span> <span class="kd">extends</span> <span class="n">AbstractExecutorService</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="kd">final</span> <span class="n">ExecutorService</span> <span class="n">exec</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="kd">final</span> <span class="n">Set</span><span class="o">&lt;</span><span class="n">Runnable</span><span class="o">&gt;</span> <span class="n">tasksCancelledAtShutdown</span> <span class="o">=</span>
+            <span class="n">Collections</span><span class="o">.</span><span class="na">synchronizedSet</span><span class="o">(</span><span class="k">new</span> <span class="n">HashSet</span><span class="o">&lt;</span><span class="n">Runnable</span><span class="o">&gt;());</span>
+
+    <span class="c1">// ...</span>
+    <span class="kd">public</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Runnable</span><span class="o">&gt;</span> <span class="nf">getCancelledTasks</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">if</span> <span class="o">(!</span><span class="n">exec</span><span class="o">.</span><span class="na">isTerminated</span><span class="o">())</span>
+            <span class="k">throw</span> <span class="k">new</span> <span class="n">IllegalStateException</span><span class="o">(</span><span class="cm">/*...*/</span><span class="o">);</span>
+        <span class="k">return</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Runnable</span><span class="o">&gt;(</span><span class="n">tasksCancelledAtShutdown</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">execute</span><span class="o">(</span><span class="kd">final</span> <span class="n">Runnable</span> <span class="n">runnable</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">exec</span><span class="o">.</span><span class="na">execute</span><span class="o">(</span><span class="k">new</span> <span class="n">Runnable</span><span class="o">()</span> <span class="o">{</span>
+            <span class="kd">public</span> <span class="kt">void</span> <span class="nf">run</span><span class="o">()</span> <span class="o">{</span>
+                <span class="k">try</span> <span class="o">{</span>
+                    <span class="n">runnable</span><span class="o">.</span><span class="na">run</span><span class="o">();</span>
+                <span class="o">}</span> <span class="k">finally</span> <span class="o">{</span>
+                    <span class="k">if</span> <span class="o">(</span><span class="n">isShutdown</span><span class="o">()</span>
+                            <span class="o">&amp;&amp;</span> <span class="n">Thread</span><span class="o">.</span><span class="na">currentThread</span><span class="o">().</span><span class="na">isInterrupted</span><span class="o">())</span>
+                        <span class="n">tasksCancelledAtShutdown</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">runnable</span><span class="o">);</span>
+                <span class="o">}</span>
+            <span class="o">}</span>
+        <span class="o">});</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<p><code>TrackingExecutor</code> shows a technique for determining which tasks were in progress at shutdown time. By encapsulating an <code>ExecutorService</code> and instrumenting execute (and similarly submit, not shown) to remember which tasks were cancelled after shutdown <code>TrackingExecutor</code> can identify which tasks started but did not complete normally. After the executor terminates, <code>getCancelledTasks</code> returns the list of cancelled tasks. In order for this technique to work, the tasks must preserve the thread’s interrupted status when they return, which well behaved tasks will do anyway.</p>
+<div class="codehilite"><pre><span></span><span class="kd">public</span> <span class="kd">abstract</span> <span class="kd">class</span> <span class="nc">WebCrawler</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="kd">volatile</span> <span class="n">TrackingExecutor</span> <span class="n">exec</span><span class="o">;</span>
+    <span class="nd">@GuardedBy</span><span class="o">(</span><span class="s">&quot;this&quot;</span><span class="o">)</span> <span class="kd">private</span> <span class="kd">final</span> <span class="n">Set</span><span class="o">&lt;</span><span class="n">URL</span><span class="o">&gt;</span> <span class="n">urlsToCrawl</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashSet</span><span class="o">&lt;</span><span class="n">URL</span><span class="o">&gt;();</span>
+
+    <span class="kd">private</span> <span class="kd">final</span> <span class="n">ConcurrentMap</span><span class="o">&lt;</span><span class="n">URL</span><span class="o">,</span> <span class="n">Boolean</span><span class="o">&gt;</span> <span class="n">seen</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ConcurrentHashMap</span><span class="o">&lt;</span><span class="n">URL</span><span class="o">,</span> <span class="n">Boolean</span><span class="o">&gt;();</span>
+    <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="kt">long</span> <span class="n">TIMEOUT</span> <span class="o">=</span> <span class="mi">500</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">TimeUnit</span> <span class="n">UNIT</span> <span class="o">=</span> <span class="n">MILLISECONDS</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="nf">WebCrawler</span><span class="o">(</span><span class="n">URL</span> <span class="n">startUrl</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">urlsToCrawl</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">startUrl</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">synchronized</span> <span class="kt">void</span> <span class="nf">start</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">exec</span> <span class="o">=</span> <span class="k">new</span> <span class="n">TrackingExecutor</span><span class="o">(</span><span class="n">Executors</span><span class="o">.</span><span class="na">newCachedThreadPool</span><span class="o">());</span>
+        <span class="k">for</span> <span class="o">(</span><span class="n">URL</span> <span class="n">url</span> <span class="o">:</span> <span class="n">urlsToCrawl</span><span class="o">)</span> <span class="n">submitCrawlTask</span><span class="o">(</span><span class="n">url</span><span class="o">);</span>
+        <span class="n">urlsToCrawl</span><span class="o">.</span><span class="na">clear</span><span class="o">();</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">synchronized</span> <span class="kt">void</span> <span class="nf">stop</span><span class="o">()</span> <span class="kd">throws</span> <span class="n">InterruptedException</span> <span class="o">{</span>
+        <span class="k">try</span> <span class="o">{</span>
+            <span class="n">saveUncrawled</span><span class="o">(</span><span class="n">exec</span><span class="o">.</span><span class="na">shutdownNow</span><span class="o">());</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">exec</span><span class="o">.</span><span class="na">awaitTermination</span><span class="o">(</span><span class="n">TIMEOUT</span><span class="o">,</span> <span class="n">UNIT</span><span class="o">))</span>
+                <span class="n">saveUncrawled</span><span class="o">(</span><span class="n">exec</span><span class="o">.</span><span class="na">getCancelledTasks</span><span class="o">());</span>
+        <span class="o">}</span> <span class="k">finally</span> <span class="o">{</span>
+            <span class="n">exec</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+
+    <span class="kd">protected</span> <span class="kd">abstract</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">URL</span><span class="o">&gt;</span> <span class="nf">processPage</span><span class="o">(</span><span class="n">URL</span> <span class="n">url</span><span class="o">);</span>
+
+    <span class="kd">private</span> <span class="kt">void</span> <span class="nf">saveUncrawled</span><span class="o">(</span><span class="n">List</span><span class="o">&lt;</span><span class="n">Runnable</span><span class="o">&gt;</span> <span class="n">uncrawled</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">for</span> <span class="o">(</span><span class="n">Runnable</span> <span class="n">task</span> <span class="o">:</span> <span class="n">uncrawled</span><span class="o">)</span>
+            <span class="n">urlsToCrawl</span><span class="o">.</span><span class="na">add</span><span class="o">(((</span><span class="n">CrawlTask</span><span class="o">)</span> <span class="n">task</span><span class="o">).</span><span class="na">getPage</span><span class="o">());</span>
+    <span class="o">}</span>
+
+    <span class="kd">private</span> <span class="kt">void</span> <span class="nf">submitCrawlTask</span><span class="o">(</span><span class="n">URL</span> <span class="n">u</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">exec</span><span class="o">.</span><span class="na">execute</span><span class="o">(</span><span class="k">new</span> <span class="n">CrawlTask</span><span class="o">(</span><span class="n">u</span><span class="o">));</span>
+    <span class="o">}</span>
+
+    <span class="c1">// ...</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<p><code>WebCrawler</code> shows an application of <code>TrackingExecutor</code>. When the crawler is shut down, both the tasks that did not start and those that were cancelled are scanned and their URLs recorded, so that page-crawling tasks for those URLs can be added to the queue when the crawler restarts.</p>
+<h2 id="handling-abnormal-thread-termination">Handling abnormal thread termination</h2>
+<p>Failure of a thread in a concurrent application is not always so obvious. The stack trace may be printed on the console, but no one may be watching the console. Also, when a thread fails, the application may appear to continue to work, so its failure could go unnoticed. Fortunately, there are means of both detecting and preventing threads from “leaking” from an application.</p>
+<p><em><strong>The leading cause of premature thread death is RuntimeException. Because these exceptions indicate a programming error or other unrecoverable problem, they are generally not caught. Instead they propagate all the way up the stack, at which point the default behavior is to print a stack trace on the console and let the thread terminate.</strong></em></p>
+<p>The consequences of abnormal thread death range from benign to disastrous, depending on the thread’s role in the application. Losing a thread from a thread pool can have performance consequences, but an application that runs well with a 50-thread pool will probably run fine with a 49-thread pool too. But losing the event dispatch thread in a GUI application would be quite noticeable—the application would stop processing events and the GUI would freeze.</p>
+<p>Task-processing threads such as the worker threads in a thread pool or the Swing event dispatch thread spend their whole life calling unknown code through an abstraction barrier like <code>Runnable</code>, and these threads should be very skeptical that the code they call will be well behaved. It would be very bad if a service like the <code>Swing</code> event thread failed just because some poorly written event handler threw a <code>NullPointerException</code>. Accordingly, these facilities should call tasks within a try-catch block that catches unchecked exceptions, or within a try-finally block to ensure that if the thread exits abnormally the framework is informed of this and can take corrective action. This is one of the few times when you might want to consider catching <code>RuntimeException</code>—when you are calling unknown, untrusted code through an abstraction such as <code>Runnable</code><sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>.</p>
+<p>Below code illustrates a way to structure a worker thread within a thread pool. If a task throws an unchecked exception, it allows the thread to die, but not before notifying the framework that the thread has died. The framework may then replace the worker thread with a new thread, or may choose not to because the thread pool is being shut down or there are already enough worker threads to meet current demand.</p>
+<div class="codehilite"><pre><span></span><span class="kd">public</span> <span class="kt">void</span> <span class="nf">run</span><span class="o">()</span> <span class="o">{</span> 
+    <span class="n">Throwable</span> <span class="n">thrown</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span> 
+    <span class="k">try</span> <span class="o">{</span>
+        <span class="k">while</span> <span class="o">(!</span><span class="n">isInterrupted</span><span class="o">())</span> <span class="n">runTask</span><span class="o">(</span><span class="n">getTaskFromWorkQueue</span> <span class="o">());</span>
+    <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">Throwable</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span> 
+        <span class="n">thrown</span> <span class="o">=</span> <span class="n">e</span><span class="o">;</span>
+    <span class="o">}</span> <span class="k">finally</span> <span class="o">{</span>
+        <span class="n">threadExited</span><span class="o">(</span><span class="k">this</span><span class="o">,</span> <span class="n">thrown</span><span class="o">);</span>
+    <span class="o">}</span> 
+<span class="o">}</span>
+</pre></div>
+
+
+<p><em><strong><code>ThreadPoolExecutor</code> and <code>Swing</code> use this technique to ensure that a poorly behaved task doesn’t prevent subsequent tasks from executing. If you are writing a worker thread class that executes submitted tasks, or calling untrusted external code (such as dynamically loaded plugins), use one of these approaches to prevent a poorly written task or plugin from taking down the thread that happens to call it.</strong></em></p>
+<h3 id="uncaught-exception-handlers">Uncaught exception handlers</h3>
+<p>The previous section offered a proactive approach to the problem of unchecked exceptions. The Thread API also provides the <code>UncaughtExceptionHandler</code> facility, which lets you detect when a thread dies due to an uncaught exception. The two approaches are complementary: taken together, they provide defense-in-depth against thread leakage.</p>
+<p>When a thread exits due to an uncaught exception, the JVM reports this event to an application-provided <code>UncaughtExceptionHandler</code>; if no handler exists, the default behavior is to print the stack trace to <code>System.err</code>.</p>
+<div class="codehilite"><pre><span></span><span class="kd">public</span> <span class="kd">interface</span> <span class="nc">UncaughtExceptionHandler</span> <span class="o">{</span>
+    <span class="kt">void</span> <span class="nf">uncaughtException</span><span class="o">(</span><span class="n">Thread</span> <span class="n">t</span><span class="o">,</span> <span class="n">Throwable</span> <span class="n">e</span><span class="o">);</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<p>What the handler should do with an uncaught exception depends on your quality-of-service requirements. The most common response is to write an error message and stack trace to the application log, or take more direct action trying to restart the thread, shutting down the application, paging an operator, other corrective or diagnostic action.</p>
+<blockquote>
+<p>In long-running applications, always use uncaught exception handlers for all threads that at least log the exception.</p>
+</blockquote>
+<p>To set an <code>UncaughtExceptionHandler</code> for pool threads, provide a <code>ThreadFactory</code> to the <code>ThreadPoolExecutor</code> constructor. The standard thread pools allow an uncaught task exception to terminate the pool thread, but use a try-finally block to be notified when this happens so the thread can be replaced. Without an uncaught exception handler or other failure notification mechanism, tasks can appear to fail silently, which can be very confusing. If you want to be notified when a task fails due to an exception so that you can take some task-specific recovery action, either wrap the task with a <code>Runnable</code> or <code>Callable</code> that catches the exception or override the <code>afterExecute</code> hook in <code>ThreadPoolExecutor</code>.</p>
+<h2 id="jvm-shutdown">JVM shutdown</h2>
+<p>In an orderly shutdown, the JVM first starts all registered shutdown hooks. Shutdown hooks are unstarted threads that are registered with <code>Runtime.addShutdownHook</code>. <em><strong>The JVM makes no guarantees on the order in which shutdown hooks are started. If any application threads (daemon or nondaemon) are still running at shutdown time, they continue to run concurrently with the shutdown process.</strong></em></p>
+<p>When all shutdown hooks have completed, the JVM may choose to run finalizers if <code>runFinalizersOnExit</code> is <code>true</code>, and then halts. <em><strong>The JVM makes no attempt to stop or interrupt any application threads that are still running at shutdown time; they are abruptly terminated when the JVM eventually halts If the shutdown hooks or finalizers don’t complete, then the orderly shutdown process “hangs” and the JVM must be shut down abruptly. In an abrupt shutdown, the JVM is not required to do anything other than halt the JVM; shutdown hooks will not run.</strong></em></p>
+<p>Shutdown hooks should be thread-safe: they must use synchronization when accessing shared data and should be careful to avoid deadlock, just like any other concurrent code. Further, they should not make assumptions about the state of the application (such as whether other services have shut down already or all normal threads have completed) or about why the JVM is shutting down, and must therefore be coded extremely defensively. Finally, they should exit as quickly as possible, since their existence delays JVM termination at a time when the user may be expecting the JVM to terminate quickly.</p>
+<p>Shutdown hooks can be used for service or application cleanup, such as deleting temporary files or cleaning up resources that are not automatically cleaned up by the OS. Below code shows how <code>LogService</code> could register a shutdown hook from its start method to ensure the log file is closed on exit.</p>
+<div class="codehilite"><pre><span></span><span class="kd">public</span> <span class="kt">void</span> <span class="nf">start</span><span class="o">()</span> <span class="o">{</span> 
+    <span class="n">Runtime</span><span class="o">.</span><span class="na">getRuntime</span><span class="o">().</span><span class="na">addShutdownHook</span><span class="o">(</span><span class="k">new</span> <span class="n">Thread</span><span class="o">()</span> <span class="o">{</span>
+        <span class="kd">public</span> <span class="kt">void</span> <span class="nf">run</span><span class="o">()</span> <span class="o">{</span>
+            <span class="k">try</span> <span class="o">{</span> <span class="n">LogService</span><span class="o">.</span><span class="na">this</span><span class="o">.</span><span class="na">stop</span><span class="o">();</span> <span class="o">}</span>
+            <span class="k">catch</span> <span class="o">(</span><span class="n">InterruptedException</span> <span class="n">ignored</span><span class="o">)</span> <span class="o">{}</span>
+        <span class="o">}</span> 
+    <span class="o">});</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<p>Because shutdown hooks all run concurrently, closing the log file could cause trouble for other shutdown hooks who want to use the logger. <em><strong>To avoid this problem, shutdown hooks should not rely on services that can be shut down by the application or other shutdown hooks.</strong></em> One way to accomplish this is to use a single shutdown hook for all services, rather than one for each service, and have it call a series of shutdown actions. This ensures that shutdown actions execute sequentially in a single thread, thus avoiding the possibility of race conditions or deadlock between shutdown actions. This technique can be used whether or not you use shutdown hooks; executing shutdown actions sequentially rather than concurrently eliminates many potential sources of failure. In applications that maintain explicit dependency information among services, this technique can also ensure that shutdown actions are performed in the right order.</p>
+<h3 id="daemon-threads">Daemon threads</h3>
+<p>Sometimes you want to create a thread that performs some helper function but you don’t want the existence of this thread to prevent the JVM from shutting down. This is what daemon threads are for.</p>
+<p>Threads are divided into two types: normal threads and daemon threads. When the JVM starts up, all the threads it creates (such as garbage collector and other housekeeping threads) are daemon threads, except the main thread. When a new thread is created, it inherits the daemon status of the thread that created it, so by default any threads created by the main thread are also normal threads.</p>
+<p><em><strong>Normal threads and daemon threads differ only in what happens when they exit. When a thread exits, the JVM performs an inventory of running threads, and if the only threads that are left are daemon threads, it initiates an orderly shutdown. When the JVM halts, any remaining daemon threads are abandoned—finally blocks are not executed, stacks are not unwound—the JVM just exits.</strong></em></p>
+<p>Daemon threads should be used sparingly—few processing activities can be safely abandoned at any time with no cleanup. In particular, it is dangerous to use daemon threads for tasks that might perform any sort of I/O. <em><strong>Daemon threads are best saved for “housekeeping” tasks, such as a background thread that periodically removes expired entries from an in-memory cache.</strong></em></p>
+<blockquote>
+<p>Daemon threads are not a good substitute for properly managing the life-cycle of services within an application.</p>
+</blockquote>
+<h3 id="finalizers">Finalizers</h3>
+<p>The garbage collector does a good job of reclaiming memory resources when they are no longer needed, but some resources, such as file or socket handles, must be explicitly returned to the operating system when no longer needed. To assist in this, the garbage collector treats objects that have a nontrivial finalize method specially: after they are reclaimed by the collector, finalize is called so that persistent resources can be released.</p>
+<p><em><strong>Since finalizers can run in a thread managed by the JVM, any state accessed by a finalizer will be accessed by more than one thread and therefore must be accessed with synchronization. Finalizers offer no guarantees on when or even if they run, and they impose a significant performance cost on objects with nontrivial finalizers.</strong></em> They are also extremely difficult to write correctly. <em><strong>In most cases, the combination of finally blocks and explicit close methods does a better job of resource management than finalizers; the sole exception is when you need to manage objects that hold resources acquired by <code>native</code> methods.</strong></em> For these reasons and others, work hard to avoid writing or using classes with finalizers (other than the platform library classes.)</p>
+<blockquote>
+<p>Avoid finalizers.</p>
+</blockquote>
+<h2 id="sumary">Sumary</h2>
+<p>End-of-lifecycle issues for tasks, threads, services, and applications can add complexity to their design and implementation. Java does not provide a preemptive mechanism for cancelling activities or terminating threads. Instead, it provides a cooperative interruption mechanism that can be used to facilitate cancellation, but it is up to you to construct protocols for cancellation and use them consistently. Using <code>FutureTask</code> and the <code>Executor</code> framework simplifies building cancellable tasks and services.</p>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:1">
+<p>There is some controversy over the safety of this technique; when a thread throws an unchecked exception, the entire application may possibly be compromised. But the alternative—shutting down the entire application—is usually not practical.&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../c06-task-execution/" title="Task Execution" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Task Execution
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../c08-applying-thread-pools/" title="Applying Thread Pools" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Applying Thread Pools
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+        
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../../../assets/javascripts/application.a353778b.js"></script>
+      
+      <script>app.initialize({version:"1.1",url:{base:"../../../.."}})</script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+      
+    
+  </body>
+</html>
